@@ -84,7 +84,11 @@ server.listen(PORT, '0.0.0.0', () => {
 });
 
 // Keep event loop alive permanently
-setInterval(() => {}, 60000);
+setInterval(() => {}, 10000);
+
+process.on('SIGINT', () => {});
+process.on('SIGTERM', () => {});
+process.on('SIGHUP', () => {});
 
 process.on('uncaughtException', (err) => {
   console.error('[UNCAUGHT-EXCEPTION]', err);
