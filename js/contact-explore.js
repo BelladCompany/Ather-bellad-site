@@ -109,8 +109,8 @@
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerHTML = 'Submitted ✓';
-            submitBtn.style.background = '#00d282';
-            submitBtn.style.color = '#051a10';
+            submitBtn.style.background = '#ff6a00';
+            submitBtn.style.color = '#ffffff';
           }
 
           if (successBanner) {
