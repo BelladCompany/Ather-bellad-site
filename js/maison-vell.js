@@ -1,7 +1,8 @@
 /**
  * ATHER RUNWAY DEPTH LOOKBOOK
  * Multi-depth interactive showcase featuring Ather's official electric scooters
- * and smart accessories with 3D parallax, depth of field, and momentum physics.
+ * and smart accessories with 3D parallax, depth of field, and silky smooth momentum physics.
+ * 100% unified with Neurial Grotesk official Ather brand typography.
  */
 (function () {
   'use strict';
@@ -10,11 +11,11 @@
   const LINEUP_ALL = [
     {
       id: 1,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (3.7 kWh)',
       color: 'Champagne Gold',
       badge: 'LUXURY DUAL-TONE',
-      tagline: 'Warm metallic luxury with slate grey dual-tone contrast',
-      specs: '159 km IDC · 80 km/h · 4.3 kWh Battery',
+      tagline: 'Dual-tone luxury finish with 34L storage & integrated backrest',
+      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
       price: '₹1,44,999',
       image: 'images/rizta_gold_cutout.png',
       swatch: '#cfa86e',
@@ -22,11 +23,11 @@
     },
     {
       id: 2,
-      model: 'Ather 450 Apex',
+      model: 'Ather 450 Apex (3.7 kWh)',
       color: 'Indium Blue',
       badge: 'FLAGSHIP PERFORMANCE',
-      tagline: 'Warp+ mode with transparent neon orange chassis accents',
-      specs: '157 km IDC · 100 km/h · 0-40 in 2.9s',
+      tagline: 'Apex edition with transparent neon orange chassis and Warp+ mode',
+      specs: '157 km IDC Range · 100 km/h · 0-40 in 2.9s',
       price: '₹1,89,999',
       image: 'images/ather_apex_runway.png',
       swatch: '#1c58d9',
@@ -34,11 +35,11 @@
     },
     {
       id: 3,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (3.7 kWh)',
       color: 'Lumen Copper',
       badge: 'SUNSET METALLIC',
-      tagline: 'Rich metallic bronze with deep graphite contrast panels',
-      specs: '159 km IDC · 80 km/h · 4.3 kWh Battery',
+      tagline: 'Sunset metallic dual-tone with SkidControl™ traction control',
+      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
       price: '₹1,44,999',
       image: 'images/rizta_copper_cutout.png',
       swatch: '#bf6c43',
@@ -46,23 +47,23 @@
     },
     {
       id: 4,
-      model: 'Ather 450X',
-      color: 'Space Grey',
-      badge: 'STEALTH PERFORMANCE',
-      tagline: 'Aerodynamic sport geometry in satin Space Grey finish',
-      specs: '150 km IDC · 90 km/h · 3.7 kWh Battery',
-      price: '₹1,49,999',
+      model: 'Ather 450X (3.7 kWh)',
+      color: 'Salt Green',
+      badge: 'SPORT PERFORMANCE',
+      tagline: 'Sport geometry in Salt Green matte with Google Maps & Warp mode',
+      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+      price: '₹1,54,999',
       image: 'images/ather_450x_runway.png',
-      swatch: '#3d4248',
+      swatch: '#cfded6',
       aspect: 1.5
     },
     {
       id: 5,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (2.9 kWh)',
       color: 'Cardamom Green Duo',
       badge: 'NATURE SATIN DUO',
-      tagline: 'Subtle sage green satin with anthracite textured panels',
-      specs: '123 km IDC · 80 km/h · 2.9 kWh Battery',
+      tagline: 'Nature-inspired satin green dual-tone with 34L underseat storage',
+      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
       price: '₹1,34,999',
       image: 'images/clean_rizta_green_duo.png',
       swatch: '#496350',
@@ -70,11 +71,11 @@
     },
     {
       id: 6,
-      model: 'Ather Rizta S',
+      model: 'Ather Rizta S (2.9 kWh)',
       color: 'Siachen White Mono',
       badge: 'ARCTIC MONOTONE',
-      tagline: 'Pure glacier white monotone with high-gloss finish',
-      specs: '123 km IDC · 80 km/h · 2.9 kWh Battery',
+      tagline: 'Pure glacier white monotone with DeepView™ digital dashboard',
+      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
       price: '₹1,09,999',
       image: 'images/clean_rizta_white_mono.png',
       swatch: '#e6ebf0',
@@ -86,11 +87,11 @@
   const LINEUP_RIZTA = [
     {
       id: 1,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (3.7 kWh)',
       color: 'Champagne Gold',
       badge: 'LUXURY DUAL-TONE',
-      tagline: 'Warm metallic luxury with slate grey dual-tone contrast',
-      specs: '159 km IDC · 80 km/h · 4.3 kWh Battery',
+      tagline: 'Dual-tone luxury finish with 34L storage & integrated backrest',
+      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
       price: '₹1,44,999',
       image: 'images/rizta_gold_cutout.png',
       swatch: '#cfa86e',
@@ -98,11 +99,11 @@
     },
     {
       id: 2,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (3.7 kWh)',
       color: 'Lumen Copper',
       badge: 'SUNSET METALLIC',
-      tagline: 'Rich metallic bronze with deep graphite contrast panels',
-      specs: '159 km IDC · 80 km/h · 4.3 kWh Battery',
+      tagline: 'Sunset metallic dual-tone with SkidControl™ traction control',
+      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
       price: '₹1,44,999',
       image: 'images/rizta_copper_cutout.png',
       swatch: '#bf6c43',
@@ -110,11 +111,11 @@
     },
     {
       id: 3,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (2.9 kWh)',
       color: 'Cardamom Green Duo',
       badge: 'NATURE SATIN DUO',
-      tagline: 'Subtle sage green satin with anthracite textured panels',
-      specs: '123 km IDC · 80 km/h · 2.9 kWh Battery',
+      tagline: 'Nature-inspired satin green dual-tone with 34L underseat storage',
+      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
       price: '₹1,34,999',
       image: 'images/clean_rizta_green_duo.png',
       swatch: '#496350',
@@ -122,11 +123,11 @@
     },
     {
       id: 4,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (2.9 kWh)',
       color: 'Pangong Blue Duo',
       badge: 'MOUNTAIN LAKE DUO',
       tagline: 'Deep Himalayan lake blue with slate grey dual-tone finish',
-      specs: '123 km IDC · 80 km/h · 2.9 kWh Battery',
+      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
       price: '₹1,34,999',
       image: 'images/clean_rizta_blue_duo.png',
       swatch: '#245278',
@@ -134,11 +135,11 @@
     },
     {
       id: 5,
-      model: 'Ather Rizta S',
+      model: 'Ather Rizta S (2.9 kWh)',
       color: 'Siachen White Mono',
       badge: 'ARCTIC MONOTONE',
-      tagline: 'Pure glacier white monotone with high-gloss finish',
-      specs: '123 km IDC · 80 km/h · 2.9 kWh Battery',
+      tagline: 'Pure glacier white monotone with DeepView™ digital dashboard',
+      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
       price: '₹1,09,999',
       image: 'images/clean_rizta_white_mono.png',
       swatch: '#e6ebf0',
@@ -146,11 +147,11 @@
     },
     {
       id: 6,
-      model: 'Ather Rizta Z',
+      model: 'Ather Rizta Z (2.9 kWh)',
       color: 'Slate Grey Duo',
       badge: 'CONTEMPORARY DUO',
       tagline: 'Deep charcoal grey dual-tone with diamond metallic flake',
-      specs: '123 km IDC · 80 km/h · 2.9 kWh Battery',
+      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
       price: '₹1,24,999',
       image: 'images/clean_rizta_grey_duo.png',
       swatch: '#5a6068',
@@ -282,7 +283,14 @@
           line = $('line'),
           wait = $('wait'),
           swatchesRow = $('swatchesRow'),
-          lineupTabs = $('lineupTabs');
+          lineupTabs = $('lineupTabs'),
+          modelEl = $('lookModelName'),
+          colorEl = $('lookColorName'),
+          taglineEl = $('lookTagline'),
+          specsEl = $('lookSpecs'),
+          priceEl = $('lookPrice'),
+          cartEl = $('cart'),
+          runwayHeading = $('runwayHeading');
 
     if (!stage || !rail || !line || !roll) return;
 
@@ -296,10 +304,10 @@
     let people = [];
     let cards = [];
     let cartCount = 0;
-    let W = 0, H = 0, base = 0, cardS = 0, side = false, dirty = true;
-    let p = 0, target = 0, last = 0, activeLookIndex = -1;
+    let W = 0, H = 0, base = 0, cardS = 0, rollItemH = 36, side = false, dirty = true;
+    let p = 0, target = 0, last = performance.now(), activeLookIndex = -1;
 
-    // Render Swatches for Quick Jump
+    // Render Swatches with Tooltip & Jump
     function renderSwatches() {
       if (!swatchesRow) return;
       swatchesRow.innerHTML = '';
@@ -333,7 +341,7 @@
         e.append(img);
 
         line.append(e);
-        return { e, r: item.aspect || 1.5, f: '', o: '' };
+        return { e, r: item.aspect || 1.5, f: '', o: '', lastF: -1 };
       });
 
       // Build Rolling Look Number
@@ -352,7 +360,6 @@
 
     // Build Accessory Product Cards
     function buildRail() {
-      // Keep rail header if present
       const header = rail.querySelector('.rail-header');
       rail.innerHTML = '';
       if (header) rail.append(header);
@@ -367,7 +374,7 @@
           <div class="shot">${makeAccessorySvg(item.icon)}</div>
           <div class="meta">
             <span class="acc-cat">${item.category}</span>
-            <h3 class="wide">${item.name}</h3>
+            <h3 class="acc-title">${item.name}</h3>
             <p class="acc-desc">${item.desc}</p>
             <div class="price-row">
               <span class="acc-price">${item.price}</span>
@@ -390,7 +397,6 @@
       const addBtn = e.target.closest('.add');
       if (addBtn) {
         cartCount++;
-        const cartEl = $('cart');
         if (cartEl) cartEl.textContent = cartCount;
         addBtn.classList.add('added');
         setTimeout(() => addBtn.classList.remove('added'), 600);
@@ -409,10 +415,8 @@
         EDITIONS = currentMode === 'rizta' ? LINEUP_RIZTA : LINEUP_ALL;
         N = EDITIONS.length;
 
-        // Update Heading
-        const heading = $('runwayHeading');
-        if (heading) {
-          heading.textContent = currentMode === 'rizta' ? 'RIZTA SIGNATURE COLORWAYS' : 'OFFICIAL ATHER LINEUP';
+        if (runwayHeading) {
+          runwayHeading.textContent = currentMode === 'rizta' ? 'RIZTA SIGNATURE COLORWAYS' : 'OFFICIAL ATHER LINEUP';
         }
 
         buildRunway();
@@ -435,19 +439,13 @@
       activeLookIndex = idx;
       const ed = EDITIONS[idx];
 
-      const modelEl = $('lookModelName');
-      const colorEl = $('lookColorName');
-      const taglineEl = $('lookTagline');
-      const specsEl = $('lookSpecs');
-      const priceEl = $('lookPrice');
-
       if (modelEl) modelEl.textContent = ed.model;
       if (colorEl) colorEl.textContent = ed.color;
       if (taglineEl) taglineEl.textContent = ed.tagline;
       if (specsEl) specsEl.textContent = ed.specs;
       if (priceEl) priceEl.textContent = ed.price;
 
-      // Update active swatch
+      // Update active swatch dot
       if (swatchesRow) {
         const dots = swatchesRow.querySelectorAll('.swatch-dot');
         dots.forEach((d, i) => {
@@ -460,7 +458,7 @@
     function size() {
       W = stage.clientWidth;
       H = stage.clientHeight;
-      base = H * 0.95;
+      base = H * 0.94;
       side = innerWidth <= 820;
 
       people.forEach(m => {
@@ -474,13 +472,14 @@
       });
 
       if (roll.firstChild) {
-        roll.style.setProperty('--h', roll.firstChild.getBoundingClientRect().height);
+        rollItemH = roll.firstChild.offsetHeight || 36;
       }
       dirty = true;
     }
 
     window.addEventListener('resize', size);
 
+    // Silky Smooth Paint Loop with GPU Optimizations
     function paint() {
       people.forEach((m, i) => {
         let d = wrap(i - p, N);
@@ -498,18 +497,36 @@
         const x = mix(KX) * W - w / 2;
         const y = mix(KF) * H - h;
 
+        // Hardware-accelerated 3D Transform
         m.e.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${s.toFixed(4)})`;
 
+        // Discrete blur calculation to avoid expensive frame-by-frame shader recompiles
         const f = mix(KB) / s;
-        const fs = f < 0.2 ? 'none' : `blur(${f.toFixed(1)}px)`;
-        const o = mix(KO).toFixed(3);
+        if (f < 0.3 || d <= 0.8) {
+          if (m.f !== 'none') {
+            m.f = 'none';
+            m.e.style.filter = 'none';
+            m.lastF = 0;
+          }
+        } else if (Math.abs(f - m.lastF) >= 0.6) {
+          m.lastF = f;
+          const fs = `blur(${f.toFixed(1)}px)`;
+          if (fs !== m.f) {
+            m.f = fs;
+            m.e.style.filter = fs;
+          }
+        }
 
-        if (fs !== m.f) { m.f = fs; m.e.style.filter = fs; }
-        if (o !== m.o) { m.o = o; m.e.style.opacity = o; }
+        const o = mix(KO).toFixed(3);
+        if (o !== m.o) {
+          m.o = o;
+          m.e.style.opacity = o;
+        }
+
         m.e.style.zIndex = 100 - Math.round(d * 10);
       });
 
-      // Rail Cards Wrapping
+      // Product Rail Loop Scrolling
       const all = cardS * ACCESSORIES.length;
       cards.forEach((c, i) => {
         let y = wrap(i * cardS - p * 2 * cardS, all);
@@ -517,44 +534,47 @@
         c.style.transform = side ? `translate3d(${y.toFixed(1)}px,0,0)` : `translate3d(0,${y.toFixed(1)}px,0)`;
       });
 
-      // Roll Look Number
-      if (roll.firstChild) {
-        const itemH = roll.firstChild.offsetHeight || 38;
-        roll.style.transform = `translate3d(0,${(-wrap(p, N) * itemH).toFixed(1)}px,0)`;
-      }
+      // Rolling Look Number
+      roll.style.transform = `translate3d(0,${(-wrap(p, N) * rollItemH).toFixed(1)}px,0)`;
 
-      // Update active edition info
+      // Update active edition info only when look index changes
       const activeIdx = wrap(Math.round(p), N);
-      updateActiveLook(activeIdx);
+      if (activeIdx !== activeLookIndex) {
+        updateActiveLook(activeIdx);
+      }
     }
 
     function frame(now) {
-      const dt = Math.min(50, now - last) || 16;
+      const dt = Math.min(40, now - last) || 16.6;
       last = now;
       const was = p;
 
       if (calm) {
         p = target;
       } else {
-        p += (target - p) * (1 - Math.exp(-dt * 0.0072));
+        // Frame-rate independent critically damped exponential spring for silky smooth interpolation
+        const friction = 0.082;
+        const step = 1 - Math.pow(1 - friction, dt / 16.667);
+        p += (target - p) * step;
       }
 
-      if (Math.abs(target - p) < 0.0004) p = target;
+      if (Math.abs(target - p) < 0.0002) p = target;
 
       if (p !== was || dirty) {
         dirty = false;
         paint();
       }
 
-      cx += (mx - cx) * 0.32;
-      cy += (my - cy) * 0.32;
+      // Smooth custom cursor follower
+      cx += (mx - cx) * 0.35;
+      cy += (my - cy) * 0.35;
       if (ring) {
         ring.style.transform = `translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`;
       }
     }
 
     let mx = 0, my = 0, cx = 0, cy = 0, down = false, sx = 0, st = 0, moved = 0, wheelT = 0;
-    const PULL = () => Math.max(160, W * 0.22);
+    const PULL = () => Math.max(180, W * 0.24);
 
     stage.addEventListener('pointerenter', e => {
       if (e.pointerType === 'mouse' && ring) ring.classList.add('show');
@@ -602,14 +622,14 @@
 
     stage.addEventListener('wheel', e => {
       const runwaySection = document.getElementById('section-runway');
-      // If user is at edition 0 and scrolling up, allow normal page scroll back up to Section 1-3
+      // If user is at edition 0 and scrolling up, allow natural page scroll back up to Section 1-3
       if (e.deltaY < 0 && target <= 0.05 && runwaySection && window.scrollY <= runwaySection.offsetTop + 30) {
         return;
       }
       e.preventDefault();
-      target += clamp(e.deltaY + e.deltaX, -120, 120) / 420;
+      target += clamp(e.deltaY + e.deltaX, -100, 100) / 450;
       clearTimeout(wheelT);
-      wheelT = setTimeout(() => { target = Math.round(target); }, 150);
+      wheelT = setTimeout(() => { target = Math.round(target); }, 140);
     }, { passive: false });
 
     window.addEventListener('keydown', e => {

@@ -13,10 +13,10 @@
   <link rel="preload" href="fonts/neurial-grotesk-medium.woff" as="font" type="font/woff" crossorigin="anonymous">
   <link rel="preload" href="fonts/neurial-grotesk-regular.woff" as="font" type="font/woff" crossorigin="anonymous">
 
-  <!-- Google Fonts: Modern Luxury EV Fallbacks + Maison Vell Fashion Fonts -->
+  <!-- Google Fonts: Luxury EV Modern Typographic Fallbacks -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Michroma&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5 CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -423,29 +423,49 @@
 
           <div class="intro">
             <div class="runway-pill-badge">ATHER ELECTRIC RUNWAY</div>
-            <h2 class="wide" id="runwayHeading">SIGNATURE EDITIONS</h2>
+            <h2 class="runway-heading" id="runwayHeading">SIGNATURE EDITIONS</h2>
             <p id="runwayDesc">Glide through Ather's flagship electric scooters in multi-depth perspective. Drag horizontally, scroll, or use the arrow keys to inspect every model and colorway.</p>
           </div>
 
           <div class="tag">
-            <div class="look wide" aria-live="polite"><span>EDITION</span><span class="win"><span class="roll" id="roll"></span></span></div>
-            <div class="look-meta" id="lookMeta">
-              <div class="look-title-row">
-                <h3 class="look-model" id="lookModelName">Ather Rizta Z</h3>
-                <span class="look-color" id="lookColorName">Champagne Gold</span>
-              </div>
-              <p class="look-tagline" id="lookTagline">Warm luxury metallic dual-tone with slate accents</p>
-              <div class="look-specs-row">
-                <span class="spec-pill" id="lookSpecs">159 km IDC · 80 km/h · 4.3 kWh</span>
-                <span class="price-pill" id="lookPrice">₹1,44,999</span>
-              </div>
-              <!-- 6 Color Swatches for Quick Jump -->
-              <div class="swatches-row" id="swatchesRow" aria-label="Quick jump to edition"></div>
+            <div class="look" aria-live="polite">
+              <span class="edition-word">EDITION</span>
+              <span class="win"><span class="roll" id="roll"></span></span>
             </div>
+
+            <div class="look-meta" id="lookMeta">
+              <!-- Title Row: Model & Color -->
+              <div class="look-title-row">
+                <h3 class="look-model" id="lookModelName">Ather Rizta Z (3.7 kWh)</h3>
+                <span class="look-color-badge" id="lookColorName">Champagne Gold</span>
+              </div>
+
+              <!-- Tagline -->
+              <p class="look-tagline" id="lookTagline">Luxury dual-tone finish with integrated backrest and deep underseat storage</p>
+
+              <!-- Prominent Price & Specs Card -->
+              <div class="look-price-specs-card">
+                <div class="price-side">
+                  <span class="price-sublabel">Ex-Showroom Price</span>
+                  <div class="price-main" id="lookPrice">₹1,44,999</div>
+                </div>
+                <div class="specs-side">
+                  <span class="specs-sublabel">Certified Range & Performance</span>
+                  <div class="specs-main" id="lookSpecs">159 km IDC Range · 80 km/h · 4.3 kWh</div>
+                </div>
+              </div>
+
+              <!-- 6 Color Swatches for Quick Jump -->
+              <div class="swatches-container">
+                <span class="swatches-label">AVAILABLE COLORWAYS:</span>
+                <div class="swatches-row" id="swatchesRow" aria-label="Quick jump to edition"></div>
+              </div>
+            </div>
+
             <div class="tag-actions">
-              <a class="shop-ather-btn wide" href="https://www.atherenergy.com/" target="_blank" rel="noopener">
+              <a class="shop-ather-btn" href="https://www.atherenergy.com/" target="_blank" rel="noopener">
                 <span>Book Test Ride</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             </div>
           </div>
@@ -455,7 +475,7 @@
         <!-- Right Side Product Rail -->
         <aside class="rail" id="rail" aria-label="Ather Smart Accessories and Gear">
           <div class="rail-header">
-            <span class="rail-title wide">Smart Accessories</span>
+            <span class="rail-title">Smart Accessories</span>
             <span class="rail-cart-count">Bag (<span id="cart">0</span>)</span>
           </div>
         </aside>
