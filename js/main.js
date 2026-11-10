@@ -439,8 +439,10 @@
   }
 
   function getNormalizedScroll() {
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    return maxScroll > 0 ? clamp(window.scrollY / maxScroll, 0, 1) : 0;
+    const track = document.getElementById('scroll-track');
+    const trackH = track ? track.offsetHeight : (document.documentElement.scrollHeight - window.innerHeight);
+    const maxScroll = Math.max(1, trackH - window.innerHeight);
+    return clamp(window.scrollY / maxScroll, 0, 1);
   }
 
   // =========================================================================
@@ -766,7 +768,9 @@
       const rect = customScrollbar.getBoundingClientRect();
       const clickY = e.clientY - rect.top;
       const progress = clamp(clickY / rect.height, 0, 1);
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const track = document.getElementById('scroll-track');
+      const trackH = track ? track.offsetHeight : (document.documentElement.scrollHeight - window.innerHeight);
+      const maxScroll = Math.max(1, trackH - window.innerHeight);
       window.scrollTo({
         top: progress * maxScroll,
         behavior: 'smooth'
@@ -789,7 +793,9 @@
       const rect = customScrollbar.getBoundingClientRect();
       const clickY = e.clientY - rect.top;
       const progress = clamp(clickY / rect.height, 0, 1);
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const track = document.getElementById('scroll-track');
+      const trackH = track ? track.offsetHeight : (document.documentElement.scrollHeight - window.innerHeight);
+      const maxScroll = Math.max(1, trackH - window.innerHeight);
       window.scrollTo(0, progress * maxScroll);
     });
 
@@ -815,7 +821,9 @@
     elem.addEventListener('click', (e) => {
       e.preventDefault();
       const targetProg = parseFloat(elem.getAttribute('data-scroll-to'));
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const track = document.getElementById('scroll-track');
+      const trackH = track ? track.offsetHeight : (document.documentElement.scrollHeight - window.innerHeight);
+      const maxScroll = Math.max(1, trackH - window.innerHeight);
       window.scrollTo({
         top: targetProg * maxScroll,
         behavior: 'smooth'
