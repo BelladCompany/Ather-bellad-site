@@ -2306,6 +2306,7 @@ body.theme-light .maison-vell-section {
    ========================================================================== */
 .explore-section {
   position: relative;
+  z-index: 100;
   width: 100%;
   padding: 100px 5% 90px;
   background-color: var(--explore-bg);
@@ -2403,6 +2404,7 @@ body.theme-light .maison-vell-section {
    ========================================================================== */
 .contact-section {
   position: relative;
+  z-index: 100;
   width: 100%;
   padding: 90px 5% 110px;
   background-color: var(--contact-bg);
@@ -2723,6 +2725,7 @@ body.theme-light .maison-vell-section {
    ========================================================================== */
 .site-footer {
   position: relative;
+  z-index: 100;
   width: 100%;
   background-color: var(--footer-bg);
   color: var(--footer-text);

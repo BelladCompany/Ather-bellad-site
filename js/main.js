@@ -466,16 +466,41 @@
     const navLinks = document.querySelectorAll('.nav-item-link');
     navLinks.forEach((link) => link.classList.remove('active'));
     const runwaySection = document.getElementById('section-runway');
+    const exploreSection = document.getElementById('section-explore');
+    const contactSection = document.getElementById('section-contact');
     const viewportEl = document.getElementById('viewport');
 
-    if (runwaySection && window.scrollY >= (runwaySection.offsetTop - window.innerHeight * 0.2)) {
-      navLinks[3]?.classList.add('active'); // Runway
+    const scrollY = window.scrollY;
+    const vh = window.innerHeight;
+
+    if (contactSection && scrollY >= (contactSection.offsetTop - vh * 0.5)) {
+      const contactLink = document.getElementById('navContactBtn');
+      if (contactLink) contactLink.classList.add('active');
       if (viewportEl) {
+        viewportEl.style.opacity = '0';
+        viewportEl.style.visibility = 'hidden';
+        viewportEl.style.pointerEvents = 'none';
+      }
+    } else if (exploreSection && scrollY >= (exploreSection.offsetTop - vh * 0.5)) {
+      const exploreLink = document.getElementById('navExploreBtn') || document.getElementById('navRunwayBtn');
+      if (exploreLink) exploreLink.classList.add('active');
+      if (viewportEl) {
+        viewportEl.style.opacity = '0';
+        viewportEl.style.visibility = 'hidden';
+        viewportEl.style.pointerEvents = 'none';
+      }
+    } else if (runwaySection && scrollY >= (runwaySection.offsetTop - vh * 0.2)) {
+      const runwayLink = document.getElementById('navRunwayBtn');
+      if (runwayLink) runwayLink.classList.add('active');
+      if (viewportEl) {
+        viewportEl.style.opacity = '0';
+        viewportEl.style.visibility = 'hidden';
         viewportEl.style.pointerEvents = 'none';
       }
     } else {
       if (viewportEl) {
         viewportEl.style.opacity = '1';
+        viewportEl.style.visibility = 'visible';
         viewportEl.style.pointerEvents = 'auto';
       }
       if (p < 0.22) {
@@ -752,6 +777,8 @@
 
   // 4. Keyboard Arrow / Page Navigation
   window.addEventListener('keydown', (e) => {
+    // Never hijack keyboard when user is typing in form inputs, textareas, or select
+    if (e.target && ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON'].includes(e.target.tagName)) return;
     if (reserveModal && reserveModal.classList.contains('open')) return;
 
     if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {

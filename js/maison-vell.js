@@ -693,23 +693,17 @@
     stage.addEventListener('pointerup', release);
     stage.addEventListener('pointercancel', release);
 
-    // WHEEL LISTENER: 3 Editions with Stop at 3rd Edition
+    // WHEEL LISTENER: Smooth 3-Edition Rotation & Natural Page Navigation
     stage.addEventListener('wheel', e => {
       const runwaySection = document.getElementById('section-runway');
       const runwayRect = runwaySection ? runwaySection.getBoundingClientRect() : null;
 
-      // 1. When scrolling between sections: allow natural smooth window scroll
-      if (!runwayRect || runwayRect.top > 20) {
+      // 1. If runway is not pinned at the top of the viewport, allow natural smooth window scrolling
+      if (!runwayRect || runwayRect.top > 30 || runwayRect.top < -30) {
         return;
       }
 
-      // 2. If user is at Edition 01 and scrolling UP (deltaY < 0):
-      // Allow natural page scroll back up to Section 3 / Reviews / Top!
-      if (e.deltaY < 0 && target <= 0.05 && runwayRect.top >= -10) {
-        return;
-      }
-
-      // 3. Trackpad horizontal swipe or Shift+Wheel:
+      // 2. Trackpad horizontal swipe or Shift+Wheel: Always changes edition
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
         e.preventDefault();
         target = clamp(target + clamp(e.deltaX, -100, 100) / 350, 0, 2);
@@ -718,21 +712,25 @@
         return;
       }
 
-      // 4. Vertical wheel:
-      // If scrolling DOWN (deltaY > 0):
-      if (e.deltaY > 0 && runwayRect.top <= 10) {
-        // Once the 3rd image gets open, the scroll must stop there!
-        if (target >= 2) {
+      // 3. Scrolling DOWN (deltaY > 0):
+      if (e.deltaY > 0) {
+        // If already at 3rd Edition (target >= 1.90), release wheel so user scrolls down to Section 5 & 6!
+        if (target >= 1.90) {
           return;
         }
         e.preventDefault();
         target = clamp(target + clamp(e.deltaY, 0, 60) / 400, 0, 2);
         clearTimeout(wheelT);
         wheelT = setTimeout(() => { target = clamp(Math.round(target), 0, 2); }, 140);
+        return;
       }
 
-      // If scrolling UP (deltaY < 0) and target > 0:
-      if (e.deltaY < 0 && target > 0.05) {
+      // 4. Scrolling UP (deltaY < 0):
+      if (e.deltaY < 0) {
+        // If already at 1st Edition (target <= 0.10), release wheel so user scrolls up to Section 3!
+        if (target <= 0.10) {
+          return;
+        }
         e.preventDefault();
         target = clamp(target + clamp(e.deltaY, -60, 0) / 400, 0, 2);
         clearTimeout(wheelT);
@@ -742,6 +740,7 @@
 
     // Keyboard Navigation: strictly clamped between 0 and 2
     window.addEventListener('keydown', e => {
+      if (e.target && ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON'].includes(e.target.tagName)) return;
       const runwaySection = document.getElementById('section-runway');
       if (!runwaySection) return;
       const rect = stage.getBoundingClientRect();
