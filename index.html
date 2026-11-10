@@ -56,7 +56,7 @@
           <a href="#specs" class="nav-item-link" data-scroll-to="0.48">Customize</a>
           <a href="#features" class="nav-item-link" data-scroll-to="0.95">Reviews</a>
           <a href="#section-runway" class="nav-item-link" id="navRunwayBtn" onclick="document.getElementById('section-runway')?.scrollIntoView({behavior:'smooth'}); return false;">Runway</a>
-          <a href="#contact" class="nav-item-link" id="navContactBtn">Contact</a>
+          <a href="#section-contact" class="nav-item-link" id="navContactBtn" onclick="document.getElementById('section-contact')?.scrollIntoView({behavior:'smooth'}); return false;">Contact</a>
         </nav>
 
         <!-- Center Brand Logo: Official Ather White Wordmark Logo -->
@@ -492,6 +492,200 @@
     <div class="wait gone" id="wait"></div>
   </section>
 
+  <!-- ==============================================
+       SECTION 5: KEEP EXPLORING
+       ============================================== -->
+  <section id="section-explore" class="explore-section" aria-label="Keep Exploring Ather Ecosystem">
+    <div class="explore-container">
+      <h2 class="explore-section-title">Keep exploring</h2>
+
+      <div class="explore-grid">
+        <!-- Card 1: Our world, in our words -->
+        <article class="explore-card">
+          <div class="explore-card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          </div>
+          <h3 class="explore-card-title">Our world, in our words</h3>
+          <p class="explore-card-desc">A peek at what we're up to in terms of technology, design and intelligence.</p>
+        </article>
+
+        <!-- Card 2: Plan your smart purchase -->
+        <article class="explore-card">
+          <div class="explore-card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+          </div>
+          <h3 class="explore-card-title">Plan your smart purchase</h3>
+          <p class="explore-card-desc">Loan options from various bank partners in your city. Interest rates starting 3.99%.</p>
+        </article>
+
+        <!-- Card 3: Find a dealer near you -->
+        <article class="explore-card">
+          <div class="explore-card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <h3 class="explore-card-title">Find a dealer near you</h3>
+          <p class="explore-card-desc">Get information on address, contact details, map location & timings.</p>
+          <a href="#section-contact" class="explore-card-link" onclick="document.getElementById('section-contact')?.scrollIntoView({behavior:'smooth'}); return false;">
+            <span>Locate experience centre</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+
+        <!-- Card 4: Genuine Ather accessories -->
+        <article class="explore-card">
+          <div class="explore-card-icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="18" r="3"></circle>
+              <circle cx="18" cy="18" r="3"></circle>
+              <path d="M6 15h7l3-7h3"></path>
+              <line x1="18" y1="5" x2="18" y2="8"></line>
+              <path d="M9 15v-4a2 2 0 0 1 2-2h2"></path>
+            </svg>
+          </div>
+          <h3 class="explore-card-title">Genuine Ather accessories</h3>
+          <p class="explore-card-desc">Premium accessories made just for your Ather. Bring out the best.</p>
+          <a href="#section-runway" class="explore-card-link" onclick="document.getElementById('section-runway')?.scrollIntoView({behavior:'smooth'}); document.querySelector('[data-view=\'gear\']')?.click(); return false;">
+            <span>Explore smart gear</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SECTION 6: GET IN TOUCH
+       ============================================== -->
+  <section id="section-contact" class="contact-section" aria-label="Get in touch with Ather Bellad & Company">
+    <div class="contact-container">
+      <div class="contact-grid">
+        <!-- Left Column: Form -->
+        <div class="contact-form-col">
+          <h2 class="contact-section-title">Get in touch</h2>
+
+          <form id="contactLeadForm" class="contact-lead-form">
+            <!-- Full Name -->
+            <div class="contact-field-wrap">
+              <input type="text" id="leadName" class="contact-input" placeholder="Name*" required autocomplete="name">
+            </div>
+
+            <!-- Phone Number with +91 -->
+            <div class="contact-field-wrap phone-wrap">
+              <div class="phone-prefix-block">
+                <span class="phone-country">+91</span>
+                <span class="phone-sep">|</span>
+              </div>
+              <input type="tel" id="leadPhone" class="contact-input phone-input" placeholder="Phone number*" pattern="[0-9]{10}" maxlength="10" required autocomplete="tel">
+            </div>
+
+            <!-- Pin Code or Area with GPS locator -->
+            <div class="contact-field-wrap area-wrap">
+              <input type="text" id="leadArea" class="contact-input area-input" placeholder="Enter Pin Code or Area*" required>
+              <button type="button" class="btn-gps-locate" id="gpsLocateBtn" title="Detect your location" aria-label="Detect your location">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="7"></circle>
+                  <line x1="12" y1="1" x2="12" y2="4"></line>
+                  <line x1="12" y1="20" x2="12" y2="23"></line>
+                  <line x1="1" y1="12" x2="4" y2="12"></line>
+                  <line x1="20" y1="12" x2="23" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Model Picker -->
+            <div class="contact-model-picker">
+              <label class="model-picker-label">Pick your model*</label>
+              <div class="model-pills-row" role="radiogroup" aria-label="Select Ather Model">
+                <button type="button" class="contact-model-pill" data-model="rizta" role="radio" aria-checked="false">Rizta</button>
+                <button type="button" class="contact-model-pill active" data-model="ather450" role="radio" aria-checked="true">Ather 450</button>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="contact-submit-btn" id="leadSubmitBtn">Submit</button>
+
+            <!-- Disclaimer -->
+            <p class="contact-disclaimer">
+              By clicking on 'Submit' you are agreeing to our <a href="https://www.atherenergy.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and are allowing us (Ather Energy) and our service partners to get in touch with you.
+            </p>
+
+            <!-- Success Confirmation Banner (hidden by default) -->
+            <div class="contact-success-banner" id="contactSuccessBanner" role="alert" aria-live="polite">
+              <div class="success-icon">✓</div>
+              <div class="success-text">
+                <strong>Thank you! Your request has been received.</strong>
+                <p>A Bellad & Company representative will call you shortly to assist with your Ather test ride and booking.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right Column: Ather Scooter Showcase Image -->
+        <div class="contact-visual-col">
+          <div class="contact-scooter-stage">
+            <div class="contact-scooter-halo"></div>
+            <img src="images/ather_450x_spacegrey.png" id="contactScooterDisplayImg" alt="Ather 450X Electric Scooter" class="contact-scooter-img">
+            <div class="contact-scooter-shadow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       FOOTER: OFFICIAL ATHER BELLAD & COMPANY
+       ============================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <div class="footer-brand-logo">ATHER</div>
+          <span class="footer-dealer-badge">Bellad & Company · Authorized Experience Centre</span>
+          <p class="footer-brand-desc">Experience India’s smartest electric scooters in North Karnataka. High performance, connected intelligence, and zero emissions.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Models</h4>
+          <ul>
+            <li><a href="#hero" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Ather Rizta</a></li>
+            <li><a href="#section-runway" onclick="document.getElementById('section-runway')?.scrollIntoView({behavior:'smooth'}); return false;">Ather 450X</a></li>
+            <li><a href="#section-runway" onclick="document.getElementById('section-runway')?.scrollIntoView({behavior:'smooth'}); return false;">Ather 450 Apex</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Explore</h4>
+          <ul>
+            <li><a href="#section-explore">Purchase & Loans</a></li>
+            <li><a href="#section-explore">Ather Accessories</a></li>
+            <li><a href="#section-contact">Book Test Ride</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Dealership Hub</h4>
+          <p class="footer-address">Bellad & Company, Gokul Road,<br>Hubballi, Karnataka 580030</p>
+          <p class="footer-phone"><strong>Phone:</strong> +91 98860 12345</p>
+          <p class="footer-hours"><strong>Hours:</strong> Mon – Sun: 9:30 AM – 8:00 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copy">© 2026 Bellad & Company. All rights reserved. Partner of Ather Energy.</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/atherenergy/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://www.youtube.com/@AtherEnergyOfficial" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://twitter.com/atherenergy" target="_blank" rel="noopener" aria-label="X (Twitter)">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <!-- Load Local JavaScript Libraries -->
   <!-- 1. Three.js r128 -->
   <script src="js/three.min.js"></script>
@@ -507,6 +701,8 @@
   <script src="js/main.js?v=11"></script>
   <!-- 7. Maison Vell Runway Depth Logic -->
   <script src="js/maison-vell.js"></script>
+  <!-- 8. Keep Exploring & Contact Logic -->
+  <script src="js/contact-explore.js"></script>
 
 </body>
 </html>
