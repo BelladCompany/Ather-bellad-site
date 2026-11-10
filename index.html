@@ -409,17 +409,16 @@
               <span>Back to Ather 3D</span>
             </a>
 
-            <!-- 3 Ather Models + All Models Switcher -->
+            <!-- 3 Ather Models Switcher -->
             <div class="stage-lineup-tabs" id="lineupTabs" role="tablist">
-              <button class="lineup-tab active" data-mode="all" type="button" role="tab">All (11)</button>
-              <button class="lineup-tab" data-mode="rizta" type="button" role="tab">Ather Rizta (6)</button>
-              <button class="lineup-tab" data-mode="450x" type="button" role="tab">Ather 450X (4)</button>
-              <button class="lineup-tab" data-mode="apex" type="button" role="tab">450 Apex (1)</button>
+              <button class="lineup-tab active" data-model="0" type="button" role="tab">Edition 01 · Rizta</button>
+              <button class="lineup-tab" data-model="1" type="button" role="tab">Edition 02 · 450X</button>
+              <button class="lineup-tab" data-model="2" type="button" role="tab">Edition 03 · 450 Apex</button>
             </div>
 
             <!-- Hint badge -->
             <div class="stage-drag-hint">
-              <span>Drag / Click to Rotate</span>
+              <span>Drag / Scroll Model (3 Editions)</span>
             </div>
           </div>
 
@@ -457,10 +456,10 @@
                 </div>
               </div>
 
-              <!-- 6 Color Swatches for Quick Jump -->
+              <!-- Color Swatches for Quick Jump / Color Changing -->
               <div class="swatches-container">
-                <span class="swatches-label">AVAILABLE COLORWAYS:</span>
-                <div class="swatches-row" id="swatchesRow" aria-label="Quick jump to edition"></div>
+                <span class="swatches-label" id="swatchesLabel">RIZTA SIGNATURE COLORWAYS:</span>
+                <div class="swatches-row" id="swatchesRow" aria-label="Select color for current model"></div>
               </div>
             </div>
 
@@ -478,8 +477,8 @@
         <aside class="rail" id="rail" aria-label="Ather Models and Colorways Showcase">
           <div class="rail-header">
             <div class="rail-header-titles">
-              <span class="rail-title">Official Colorways</span>
-              <span class="rail-counter" id="railCounter">11 Editions Available</span>
+              <span class="rail-title" id="railTitle">Ather Rizta Colors</span>
+              <span class="rail-counter" id="railCounter">6 Colorways</span>
             </div>
             <div class="rail-view-toggle" id="railViewToggle">
               <button class="rail-toggle-btn active" data-view="colors" type="button">Colors</button>

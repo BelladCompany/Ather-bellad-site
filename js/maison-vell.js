@@ -1,172 +1,164 @@
 /**
  * ATHER RUNWAY DEPTH LOOKBOOK
- * Multi-depth interactive showcase featuring 3 Ather Models (Rizta, 450X, 450 Apex)
- * and all official colorways with 3D parallax, real transparent cutouts, and silky momentum physics.
+ * Multi-depth interactive showcase featuring strictly 3 Ather Models (Rizta, 450X, 450 Apex)
+ * Clamped strictly to 3 editions (stops at 3rd edition).
+ * Side panel dynamically displays that particular model's colors.
+ * Selecting a color updates the model on stage without changing the edition.
  * 100% unified with Neurial Grotesk official brand typography.
  */
 (function () {
   'use strict';
 
-  // MODEL 1: Ather Rizta (6 Signature Colors)
-  const RIZTA_EDITIONS = [
+  // 3 OFFICIAL ATHER MODELS WITH THEIR COMPLETE SIGNATURE COLORWAYS
+  const MODELS = [
     {
       id: 1,
-      modelLine: 'Ather Rizta',
-      model: 'Ather Rizta Z (3.7 kWh)',
-      color: 'Champagne Gold Duo',
-      badge: 'DUAL-TONE LUXURY',
-      tagline: 'Warm metallic luxury with slate grey contrast & integrated backrest',
-      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
-      price: '₹1,44,999',
-      image: 'images/rizta_gold_cutout.png',
-      swatch: '#cfa86e',
-      aspect: 1.5
+      editionNumber: '01',
+      name: 'Ather Rizta',
+      tagline: 'Family comfort scooter with spacious 34L storage & integrated pillion backrest',
+      defaultColorIndex: 0,
+      colors: [
+        {
+          name: 'Champagne Gold Duo',
+          modelVariant: 'Ather Rizta Z (3.7 kWh)',
+          badge: 'DUAL-TONE LUXURY',
+          tagline: 'Warm metallic luxury with slate grey contrast & integrated backrest',
+          specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
+          price: '₹1,44,999',
+          image: 'images/rizta_gold_cutout.png',
+          swatch: '#cfa86e',
+          aspect: 1.5
+        },
+        {
+          name: 'Lumen Copper Duo',
+          modelVariant: 'Ather Rizta Z (3.7 kWh)',
+          badge: 'SUNSET METALLIC',
+          tagline: 'Sunset metallic dual-tone with SkidControl™ traction control',
+          specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
+          price: '₹1,44,999',
+          image: 'images/rizta_copper_cutout.png',
+          swatch: '#bf6c43',
+          aspect: 1.5
+        },
+        {
+          name: 'Cardamom Green Duo',
+          modelVariant: 'Ather Rizta Z (2.9 kWh)',
+          badge: 'NATURE SATIN DUO',
+          tagline: 'Nature-inspired satin green dual-tone with 34L underseat storage',
+          specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
+          price: '₹1,34,999',
+          image: 'images/clean_rizta_green_duo.png',
+          swatch: '#496350',
+          aspect: 1.5
+        },
+        {
+          name: 'Pangong Blue Duo',
+          modelVariant: 'Ather Rizta Z (2.9 kWh)',
+          badge: 'MOUNTAIN LAKE DUO',
+          tagline: 'Deep Himalayan lake blue with slate grey dual-tone finish',
+          specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
+          price: '₹1,34,999',
+          image: 'images/clean_rizta_blue_duo.png',
+          swatch: '#245278',
+          aspect: 1.5
+        },
+        {
+          name: 'Siachen White Mono',
+          modelVariant: 'Ather Rizta S (2.9 kWh)',
+          badge: 'ARCTIC MONOTONE',
+          tagline: 'Pure glacier white monotone with DeepView™ digital dashboard',
+          specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
+          price: '₹1,09,999',
+          image: 'images/clean_rizta_white_mono.png',
+          swatch: '#e6ebf0',
+          aspect: 1.5
+        },
+        {
+          name: 'Slate Grey Duo',
+          modelVariant: 'Ather Rizta Z (2.9 kWh)',
+          badge: 'CONTEMPORARY DUO',
+          tagline: 'Deep charcoal grey dual-tone with diamond metallic flake',
+          specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
+          price: '₹1,24,999',
+          image: 'images/clean_rizta_grey_duo.png',
+          swatch: '#5a6068',
+          aspect: 1.5
+        }
+      ]
     },
     {
       id: 2,
-      modelLine: 'Ather Rizta',
-      model: 'Ather Rizta Z (3.7 kWh)',
-      color: 'Lumen Copper Duo',
-      badge: 'SUNSET METALLIC',
-      tagline: 'Sunset metallic dual-tone with SkidControl™ traction control',
-      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
-      price: '₹1,44,999',
-      image: 'images/rizta_copper_cutout.png',
-      swatch: '#bf6c43',
-      aspect: 1.5
+      editionNumber: '02',
+      name: 'Ather 450X',
+      tagline: 'Aerodynamic sport geometry with Google Maps navigation & Warp mode',
+      defaultColorIndex: 0,
+      colors: [
+        {
+          name: 'Space Grey',
+          modelVariant: 'Ather 450X (3.7 kWh)',
+          badge: 'STEALTH PERFORMANCE',
+          tagline: 'Aerodynamic sport geometry in stealth gunmetal Space Grey finish',
+          specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+          price: '₹1,54,999',
+          image: 'images/ather_450x_spacegrey.png',
+          swatch: '#42474e',
+          aspect: 1.5
+        },
+        {
+          name: 'True Red',
+          modelVariant: 'Ather 450X (3.7 kWh)',
+          badge: 'RACING SPORT',
+          tagline: 'High-contrast vibrant True Red with track-inspired graphics',
+          specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+          price: '₹1,54,999',
+          image: 'images/ather_450x_red.png',
+          swatch: '#d92626',
+          aspect: 1.5
+        },
+        {
+          name: 'Salt Green',
+          modelVariant: 'Ather 450X (3.7 kWh)',
+          badge: 'PASTEL MATTE',
+          tagline: 'Contemporary sage green matte with Google Maps & Warp mode',
+          specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+          price: '₹1,54,999',
+          image: 'images/ather_450x_runway.png',
+          swatch: '#cfded6',
+          aspect: 1.5
+        },
+        {
+          name: 'Cosmic Black',
+          modelVariant: 'Ather 450X (3.7 kWh)',
+          badge: 'MIDNIGHT GLOSS',
+          tagline: 'High-gloss deep cosmic black with contrasting cyan accents',
+          specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+          price: '₹1,54,999',
+          image: 'images/ather_450x_black.png',
+          swatch: '#1a1c20',
+          aspect: 1.5
+        }
+      ]
     },
     {
       id: 3,
-      modelLine: 'Ather Rizta',
-      model: 'Ather Rizta Z (2.9 kWh)',
-      color: 'Cardamom Green Duo',
-      badge: 'NATURE SATIN DUO',
-      tagline: 'Nature-inspired satin green dual-tone with 34L underseat storage',
-      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
-      price: '₹1,34,999',
-      image: 'images/clean_rizta_green_duo.png',
-      swatch: '#496350',
-      aspect: 1.5
-    },
-    {
-      id: 4,
-      modelLine: 'Ather Rizta',
-      model: 'Ather Rizta Z (2.9 kWh)',
-      color: 'Pangong Blue Duo',
-      badge: 'MOUNTAIN LAKE DUO',
-      tagline: 'Deep Himalayan lake blue with slate grey dual-tone finish',
-      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
-      price: '₹1,34,999',
-      image: 'images/clean_rizta_blue_duo.png',
-      swatch: '#245278',
-      aspect: 1.5
-    },
-    {
-      id: 5,
-      modelLine: 'Ather Rizta',
-      model: 'Ather Rizta S (2.9 kWh)',
-      color: 'Siachen White Mono',
-      badge: 'ARCTIC MONOTONE',
-      tagline: 'Pure glacier white monotone with DeepView™ digital dashboard',
-      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
-      price: '₹1,09,999',
-      image: 'images/clean_rizta_white_mono.png',
-      swatch: '#e6ebf0',
-      aspect: 1.5
-    },
-    {
-      id: 6,
-      modelLine: 'Ather Rizta',
-      model: 'Ather Rizta Z (2.9 kWh)',
-      color: 'Slate Grey Duo',
-      badge: 'CONTEMPORARY DUO',
-      tagline: 'Deep charcoal grey dual-tone with diamond metallic flake',
-      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
-      price: '₹1,24,999',
-      image: 'images/clean_rizta_grey_duo.png',
-      swatch: '#5a6068',
-      aspect: 1.5
+      editionNumber: '03',
+      name: 'Ather 450 Apex',
+      tagline: 'Flagship super-scooter with Warp+ mode, Magic Twist & transparent orange frame',
+      defaultColorIndex: 0,
+      colors: [
+        {
+          name: 'Indium Blue Special Edition',
+          modelVariant: 'Ather 450 Apex (3.7 kWh)',
+          badge: 'FLAGSHIP WARP+',
+          tagline: 'Warp+ mode with transparent neon orange chassis accents',
+          specs: '157 km IDC Range · 100 km/h · 0-40 in 2.9s',
+          price: '₹1,89,999',
+          image: 'images/ather_apex_runway.png',
+          swatch: '#1c58d9',
+          aspect: 1.5
+        }
+      ]
     }
-  ];
-
-  // MODEL 2: Ather 450X (4 Signature Colors)
-  const FOUR_FIFTY_X_EDITIONS = [
-    {
-      id: 7,
-      modelLine: 'Ather 450X',
-      model: 'Ather 450X (3.7 kWh)',
-      color: 'Space Grey',
-      badge: 'STEALTH PERFORMANCE',
-      tagline: 'Aerodynamic sport geometry in stealth gunmetal Space Grey finish',
-      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
-      price: '₹1,54,999',
-      image: 'images/ather_450x_spacegrey.png',
-      swatch: '#42474e',
-      aspect: 1.5
-    },
-    {
-      id: 8,
-      modelLine: 'Ather 450X',
-      model: 'Ather 450X (3.7 kWh)',
-      color: 'True Red',
-      badge: 'RACING SPORT',
-      tagline: 'High-contrast vibrant True Red with track-inspired graphics',
-      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
-      price: '₹1,54,999',
-      image: 'images/ather_450x_red.png',
-      swatch: '#d92626',
-      aspect: 1.5
-    },
-    {
-      id: 9,
-      modelLine: 'Ather 450X',
-      model: 'Ather 450X (3.7 kWh)',
-      color: 'Salt Green',
-      badge: 'PASTEL MATTE',
-      tagline: 'Contemporary sage green matte with Google Maps & Warp mode',
-      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
-      price: '₹1,54,999',
-      image: 'images/ather_450x_runway.png',
-      swatch: '#cfded6',
-      aspect: 1.5
-    },
-    {
-      id: 10,
-      modelLine: 'Ather 450X',
-      model: 'Ather 450X (3.7 kWh)',
-      color: 'Cosmic Black',
-      badge: 'MIDNIGHT GLOSS',
-      tagline: 'High-gloss deep cosmic black with contrasting cyan accents',
-      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
-      price: '₹1,54,999',
-      image: 'images/ather_450x_black.png',
-      swatch: '#1a1c20',
-      aspect: 1.5
-    }
-  ];
-
-  // MODEL 3: Ather 450 Apex (1 Flagship Special Edition)
-  const APEX_EDITIONS = [
-    {
-      id: 11,
-      modelLine: 'Ather 450 Apex',
-      model: 'Ather 450 Apex (3.7 kWh)',
-      color: 'Indium Blue Special Edition',
-      badge: 'FLAGSHIP WARP+',
-      tagline: 'Warp+ mode with transparent neon orange chassis accents',
-      specs: '157 km IDC Range · 100 km/h · 0-40 in 2.9s',
-      price: '₹1,89,999',
-      image: 'images/ather_apex_runway.png',
-      swatch: '#1c58d9',
-      aspect: 1.5
-    }
-  ];
-
-  // ALL 11 EDITIONS COMBINED
-  const ALL_EDITIONS = [
-    ...RIZTA_EDITIONS,
-    ...FOUR_FIFTY_X_EDITIONS,
-    ...APEX_EDITIONS
   ];
 
   // 12 Ather Smart Accessories & Official Gear
@@ -185,7 +177,7 @@
     { name: 'Ather Grip Pro Handlebars', category: 'Performance Controls', price: '₹899', icon: 'grips', desc: 'Micro-textured anti-vibration high-grip rubber handlebar set' }
   ];
 
-  // Depth stops
+  // Depth stops table
   const KX = [1.18, .68, .46, .33, .22, .14, .08];
   const KF = [1.14, .90, .785, .71, .655, .62, .59];
   const KH = [1.18, .82, .56, .42, .32, .24, .18];
@@ -193,6 +185,7 @@
   const KO = [1, 1, 1, 1, .86, .5, 0];
 
   const $ = id => document.getElementById(id);
+  const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
   const calm = matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   function makeAccessorySvg(icon) {
@@ -221,6 +214,7 @@
           line = $('line'),
           wait = $('wait'),
           swatchesRow = $('swatchesRow'),
+          swatchesLabel = $('swatchesLabel'),
           lineupTabs = $('lineupTabs'),
           modelEl = $('lookModelName'),
           colorEl = $('lookColorName'),
@@ -229,120 +223,194 @@
           priceEl = $('lookPrice'),
           cartEl = $('cart'),
           runwayHeading = $('runwayHeading'),
+          railTitle = $('railTitle'),
           railCounter = $('railCounter'),
           railViewToggle = $('railViewToggle'),
           railTrack = $('railTrack') || rail;
 
     if (!stage || !rail || !line || !roll) return;
 
-    let currentMode = 'all'; // 'all', 'rizta', '450x', 'apex'
+    // Track active color index for each of the 3 models [Rizta, 450X, 450 Apex]
+    const selectedColorIndex = [0, 0, 0];
+    let activeModelIndex = 0;
     let currentRailView = 'colors'; // 'colors' or 'gear'
-    let EDITIONS = ALL_EDITIONS;
-    let N = EDITIONS.length;
-
-    const wrap = (x, n) => ((x % n) + n) % n;
-    const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+    const N = 3; // STRICTLY 3 EDITIONS
 
     let people = [];
     let cards = [];
     let cartCount = 0;
-    let W = 0, H = 0, base = 0, cardS = 0, rollItemH = 36, side = false, dirty = true;
-    let p = 0, target = 0, last = performance.now(), activeLookIndex = -1;
+    let W = 0, H = 0, base = 0, rollItemH = 38, dirty = true;
+    let p = 0, target = 0, last = performance.now();
 
-    // Render Swatches
-    function renderSwatches() {
+    // Render Bottom-Left Swatches for the Current Model
+    function renderSwatchesForModel(modelIdx) {
       if (!swatchesRow) return;
       swatchesRow.innerHTML = '';
-      EDITIONS.forEach((ed, i) => {
+      const model = MODELS[modelIdx];
+      const activeColorIdx = selectedColorIndex[modelIdx] || 0;
+
+      model.colors.forEach((color, i) => {
         const dot = document.createElement('button');
-        dot.className = 'swatch-dot' + (i === 0 ? ' active' : '');
-        dot.style.backgroundColor = ed.swatch;
-        dot.title = `${ed.model} — ${ed.color}`;
-        dot.setAttribute('aria-label', `Jump to ${ed.color}`);
+        dot.className = 'swatch-dot' + (i === activeColorIdx ? ' active' : '');
+        dot.style.backgroundColor = color.swatch;
+        dot.title = `${model.name} — ${color.name}`;
+        dot.setAttribute('aria-label', `Select ${color.name}`);
+
+        // Clicking a swatch changes the color of the current model in-place (edition does NOT change)
         dot.addEventListener('click', (e) => {
           e.stopPropagation();
-          jumpToLook(i);
+          selectModelColor(modelIdx, i);
         });
+
         swatchesRow.append(dot);
       });
     }
 
-    // Build Scooter 3D Runway Line
+    // Select Color for a Given Model (EDITION REMAINS UNCHANGED)
+    function selectModelColor(modelIdx, colorIdx) {
+      if (modelIdx < 0 || modelIdx >= MODELS.length) return;
+      const model = MODELS[modelIdx];
+      if (!model.colors[colorIdx]) return;
+
+      selectedColorIndex[modelIdx] = colorIdx;
+      const color = model.colors[colorIdx];
+
+      // Smooth visual crossfade on stage scooter
+      const person = people[modelIdx];
+      if (person && person.img) {
+        person.img.style.transition = 'opacity 0.22s ease-out, transform 0.22s ease-out';
+        person.img.style.opacity = '0.35';
+        person.img.style.transform = 'scale(0.97)';
+
+        setTimeout(() => {
+          person.img.src = color.image;
+          person.img.alt = `${model.name} in ${color.name}`;
+          person.img.style.opacity = '1';
+          person.img.style.transform = 'scale(1)';
+        }, 120);
+      }
+
+      // Update bottom-left info block
+      if (modelEl) modelEl.textContent = color.modelVariant || model.name;
+      if (colorEl) colorEl.textContent = color.name;
+      if (taglineEl) taglineEl.textContent = color.tagline || model.tagline;
+      if (specsEl) specsEl.textContent = color.specs;
+      if (priceEl) priceEl.textContent = color.price;
+
+      // Update bottom-left swatch active states
+      if (swatchesRow) {
+        const dots = swatchesRow.querySelectorAll('.swatch-dot');
+        dots.forEach((dot, idx) => {
+          if (idx === colorIdx) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+      }
+
+      // Update side rail cards active state and button text
+      if (currentRailView === 'colors' && cards && cards.length) {
+        cards.forEach((card, idx) => {
+          const btn = card.querySelector('.rail-select-btn');
+          if (idx === colorIdx) {
+            card.classList.add('active-card');
+            if (btn) {
+              btn.textContent = '✓ Selected';
+              btn.classList.add('selected');
+            }
+          } else {
+            card.classList.remove('active-card');
+            if (btn) {
+              btn.textContent = 'Select Color';
+              btn.classList.remove('selected');
+            }
+          }
+        });
+      }
+
+      // EDITION MUST NOT CHANGE: target and p remain at current active model
+    }
+
+    // Build the 3-Model Runway Line
     function buildRunway() {
       line.innerHTML = '';
-      people = EDITIONS.map((item, i) => {
+      people = MODELS.map((model, i) => {
         const e = document.createElement('div');
         e.className = 'm';
         e.dataset.i = i;
-        e.title = `${item.model} — ${item.color}`;
+        e.title = `${model.name}`;
+
+        const currentColor = model.colors[selectedColorIndex[i] || 0];
 
         const img = document.createElement('img');
-        img.src = item.image;
-        img.alt = `${item.model} in ${item.color}`;
+        img.src = currentColor.image;
+        img.alt = `${model.name} in ${currentColor.name}`;
         img.draggable = false;
         e.append(img);
 
         line.append(e);
-        return { e, r: item.aspect || 1.5, f: '', o: '', lastF: -1 };
+        return { e, img, r: 1.5, f: '', o: '', lastF: -1 };
       });
 
-      // Build Rolling Look Number
+      // Build Rolling Look Number with strictly 3 editions: 01, 02, 03
       roll.innerHTML = '';
-      for (let i = 0; i <= N; i++) {
+      for (let i = 1; i <= 3; i++) {
         const b = document.createElement('b');
-        const num = (i % N) + 1;
-        b.textContent = num < 10 ? '0' + num : num;
+        b.textContent = '0' + i;
         roll.append(b);
       }
 
-      renderSwatches();
       size();
       dirty = true;
     }
 
-    // Build Right Rail Cards (Colored Model Images OR Accessories)
-    function buildRail() {
+    // Build Right Rail Cards for Current Active Model
+    function buildRailForModel(modelIdx) {
       railTrack.innerHTML = '';
 
       if (currentRailView === 'colors') {
-        // Show Colored Model Editions
-        if (railCounter) railCounter.textContent = `${EDITIONS.length} Editions Available`;
+        const model = MODELS[modelIdx];
+        const activeColorIdx = selectedColorIndex[modelIdx] || 0;
 
-        cards = EDITIONS.map((item, i) => {
+        if (railTitle) railTitle.textContent = `${model.name} Colors`;
+        if (railCounter) railCounter.textContent = `${model.colors.length} Colorways Available`;
+
+        cards = model.colors.map((color, i) => {
+          const isSelected = (i === activeColorIdx);
           const card = document.createElement('article');
-          card.className = 'card' + (i % 2 ? ' alt' : '') + (i === activeLookIndex ? ' active-card' : '');
-          card.dataset.index = i;
+          card.className = 'card' + (isSelected ? ' active-card' : '');
+          card.dataset.colorIndex = i;
           card.innerHTML = `
             <div class="rail-card-top">
-              <span class="rail-badge">${item.badge}</span>
-              <button class="fav" aria-pressed="false" aria-label="Save ${item.color}">
+              <span class="rail-badge">${color.badge}</span>
+              <button class="fav" aria-pressed="false" aria-label="Save ${color.name}">
                 <svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.600 4.600 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg>
               </button>
             </div>
             <div class="rail-thumb-wrap">
-              <img src="${item.image}" alt="${item.model} in ${item.color}" class="rail-scooter-thumb" draggable="false">
+              <img src="${color.image}" alt="${model.name} in ${color.name}" class="rail-scooter-thumb" draggable="false">
             </div>
             <div class="meta">
               <div class="rail-color-tag">
-                <span class="rail-swatch-chip" style="background-color: ${item.swatch};"></span>
-                <span class="rail-color-title">${item.color}</span>
+                <span class="rail-swatch-chip" style="background-color: ${color.swatch};"></span>
+                <span class="rail-color-title">${color.name}</span>
               </div>
-              <h3 class="acc-title">${item.model}</h3>
-              <p class="acc-desc">${item.specs}</p>
+              <h3 class="acc-title">${color.modelVariant || model.name}</h3>
+              <p class="acc-desc">${color.specs}</p>
               <div class="price-row">
                 <div class="rail-price-block">
                   <span class="rail-price-prefix">Ex-Showroom</span>
-                  <span class="acc-price">${item.price}</span>
+                  <span class="acc-price">${color.price}</span>
                 </div>
-                <button class="rail-select-btn" type="button" aria-label="View on runway">View 3D</button>
+                <button class="rail-select-btn ${isSelected ? 'selected' : ''}" type="button" aria-label="Select ${color.name}">
+                  ${isSelected ? '✓ Selected' : 'Select Color'}
+                </button>
               </div>
             </div>
           `;
 
-          // Clicking card rotates runway to this exact scooter!
+          // Clicking card selects this color in-place without changing edition
           card.addEventListener('click', (e) => {
             if (e.target.closest('.fav')) return;
-            jumpToLook(i);
+            selectModelColor(modelIdx, i);
           });
 
           railTrack.append(card);
@@ -351,11 +419,12 @@
 
       } else {
         // Show Accessories View
-        if (railCounter) railCounter.textContent = `${ACCESSORIES.length} Smart Gear Items`;
+        if (railTitle) railTitle.textContent = 'Smart Accessories';
+        if (railCounter) railCounter.textContent = `${ACCESSORIES.length} Gear Items`;
 
         cards = ACCESSORIES.map((item, i) => {
           const card = document.createElement('article');
-          card.className = 'card' + (i % 2 ? ' alt' : '');
+          card.className = 'card';
           card.innerHTML = `
             <button class="fav" aria-pressed="false" aria-label="Save ${item.name}">
               <svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.600 4.600 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg>
@@ -375,9 +444,6 @@
           return card;
         });
       }
-
-      size();
-      dirty = true;
     }
 
     // Toggle between Colors & Gear in Right Rail
@@ -388,7 +454,7 @@
         railViewToggle.querySelectorAll('.rail-toggle-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentRailView = btn.dataset.view;
-        buildRail();
+        buildRailForModel(activeModelIndex);
       });
     }
 
@@ -410,94 +476,70 @@
       }
     });
 
-    // 3 Models + All Lineup Switcher
+    // 3 Models Lineup Tabs Click Handler
     if (lineupTabs) {
       lineupTabs.addEventListener('click', e => {
         const tab = e.target.closest('.lineup-tab');
-        if (!tab || tab.dataset.mode === currentMode) return;
-        lineupTabs.querySelectorAll('.lineup-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        currentMode = tab.dataset.mode;
-        if (currentMode === 'rizta') {
-          EDITIONS = RIZTA_EDITIONS;
-        } else if (currentMode === '450x') {
-          EDITIONS = FOUR_FIFTY_X_EDITIONS;
-        } else if (currentMode === 'apex') {
-          EDITIONS = APEX_EDITIONS;
-        } else {
-          EDITIONS = ALL_EDITIONS;
+        if (!tab) return;
+        const modelIdx = parseInt(tab.dataset.model, 10);
+        if (!isNaN(modelIdx)) {
+          target = clamp(modelIdx, 0, 2);
         }
-
-        N = EDITIONS.length;
-
-        if (runwayHeading) {
-          if (currentMode === 'rizta') runwayHeading.textContent = 'ATHER RIZTA SIGNATURE COLORWAYS';
-          else if (currentMode === '450x') runwayHeading.textContent = 'ATHER 450X SPORT LINEUP';
-          else if (currentMode === 'apex') runwayHeading.textContent = 'ATHER 450 APEX INDIUM BLUE';
-          else runwayHeading.textContent = 'OFFICIAL ATHER SIGNATURE LINEUP';
-        }
-
-        buildRunway();
-        buildRail();
-        target = 0;
-        p = 0;
-        activeLookIndex = -1;
-        updateActiveLook(0);
       });
     }
 
-    function jumpToLook(index) {
-      const current = Math.round(target);
-      const diff = wrap(index - current, N);
-      const shortestDiff = diff > N / 2 ? diff - N : diff;
-      target = current + shortestDiff;
-    }
+    // Update Active Model when scrolling between Edition 01, 02, and 03
+    function updateActiveModel(idx) {
+      const modelIdx = clamp(idx, 0, 2);
+      if (modelIdx === activeModelIndex && cards.length) return;
+      activeModelIndex = modelIdx;
 
-    function updateActiveLook(idx) {
-      if (idx === activeLookIndex || !EDITIONS[idx]) return;
-      activeLookIndex = idx;
-      const ed = EDITIONS[idx];
+      const model = MODELS[modelIdx];
+      const currentColorIdx = selectedColorIndex[modelIdx] || 0;
+      const color = model.colors[currentColorIdx];
 
-      if (modelEl) modelEl.textContent = ed.model;
-      if (colorEl) colorEl.textContent = ed.color;
-      if (taglineEl) taglineEl.textContent = ed.tagline;
-      if (specsEl) specsEl.textContent = ed.specs;
-      if (priceEl) priceEl.textContent = ed.price;
-
-      // Update active swatch dot
-      if (swatchesRow) {
-        const dots = swatchesRow.querySelectorAll('.swatch-dot');
-        dots.forEach((d, i) => {
-          if (i === idx) d.classList.add('active');
-          else d.classList.remove('active');
+      // Sync Top Lineup Tabs
+      if (lineupTabs) {
+        lineupTabs.querySelectorAll('.lineup-tab').forEach((tab, i) => {
+          if (i === modelIdx) tab.classList.add('active');
+          else tab.classList.remove('active');
         });
       }
 
-      // Update active rail card highlight
-      if (currentRailView === 'colors' && cards.length) {
-        cards.forEach((c, i) => {
-          if (i === idx) c.classList.add('active-card');
-          else c.classList.remove('active-card');
-        });
+      // Update Section Heading
+      if (runwayHeading) {
+        if (modelIdx === 0) runwayHeading.textContent = 'ATHER RIZTA · COMFORT & LUXURY';
+        else if (modelIdx === 1) runwayHeading.textContent = 'ATHER 450X · PERFORMANCE & SPEED';
+        else runwayHeading.textContent = 'ATHER 450 APEX · FLAGSHIP HYPER-RIDE';
       }
+
+      // Update Swatches Label
+      if (swatchesLabel) {
+        swatchesLabel.textContent = `${model.name.toUpperCase()} COLORWAYS:`;
+      }
+
+      // Update bottom-left swatches row
+      renderSwatchesForModel(modelIdx);
+
+      // Update right rail to show that particular model's colors
+      buildRailForModel(modelIdx);
+
+      // Update bottom-left info block
+      if (modelEl) modelEl.textContent = color.modelVariant || model.name;
+      if (colorEl) colorEl.textContent = color.name;
+      if (taglineEl) taglineEl.textContent = color.tagline || model.tagline;
+      if (specsEl) specsEl.textContent = color.specs;
+      if (priceEl) priceEl.textContent = color.price;
     }
 
     function size() {
       W = stage.clientWidth;
       H = stage.clientHeight;
       base = H * 0.94;
-      side = innerWidth <= 820;
 
       people.forEach(m => {
         m.e.style.width = (base * m.r).toFixed(1) + 'px';
         m.e.style.height = base.toFixed(1) + 'px';
-      });
-
-      const trackH = railTrack.clientHeight || (rail.clientHeight - 52);
-      cardS = side ? 180 : Math.max(220, Math.round(trackH / 2.7));
-      cards.forEach(c => {
-        c.style.height = side ? '100%' : cardS + 'px';
       });
 
       if (roll.firstChild) {
@@ -508,11 +550,11 @@
 
     window.addEventListener('resize', size);
 
-    // Silky Smooth Paint Loop with GPU Shader Caching
+    // Silky Smooth Paint Loop with Clamped 3-Model Perspective
     function paint() {
       people.forEach((m, i) => {
-        let d = wrap(i - p, N);
-        if (d > N - 1) d -= N;
+        // Depth relative to current progress p
+        const d = i - p;
 
         const k = clamp(d + 1, 0, 6);
         const a = Math.floor(k);
@@ -529,15 +571,15 @@
         // Hardware-accelerated 3D Transform
         m.e.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${s.toFixed(4)})`;
 
-        // Discrete blur calculation to avoid expensive frame-by-frame shader recompiles
+        // Blur calculation
         const f = mix(KB) / s;
-        if (f < 0.3 || d <= 0.8) {
+        if (f < 0.3 || d <= 0.4) {
           if (m.f !== 'none') {
             m.f = 'none';
             m.e.style.filter = 'none';
             m.lastF = 0;
           }
-        } else if (Math.abs(f - m.lastF) >= 0.6) {
+        } else if (Math.abs(f - m.lastF) >= 0.5) {
           m.lastF = f;
           const fs = `blur(${f.toFixed(1)}px)`;
           if (fs !== m.f) {
@@ -546,31 +588,27 @@
           }
         }
 
-        const o = mix(KO).toFixed(3);
+        // Opacity: fade cleanly when past the front (d < -0.2)
+        let oVal = mix(KO);
+        if (d < -0.2) {
+          oVal = Math.max(0, 1 - ((-d - 0.2) / 0.7));
+        }
+        const o = oVal.toFixed(3);
         if (o !== m.o) {
           m.o = o;
           m.e.style.opacity = o;
         }
 
-        m.e.style.zIndex = 100 - Math.round(d * 10);
+        m.e.style.zIndex = Math.round((10 - d) * 10);
       });
 
-      // Product Rail Loop Scrolling
-      const totalItems = cards.length || 1;
-      const all = cardS * totalItems;
-      cards.forEach((c, i) => {
-        let y = wrap(i * cardS - p * 2 * cardS, all);
-        if (y > all - cardS) y -= all;
-        c.style.transform = side ? `translate3d(${y.toFixed(1)}px,0,0)` : `translate3d(0,${y.toFixed(1)}px,0)`;
-      });
+      // Rolling Look Number: p moves strictly between 0 and 2
+      roll.style.transform = `translate3d(0,${(-p * rollItemH).toFixed(1)}px,0)`;
 
-      // Rolling Look Number
-      roll.style.transform = `translate3d(0,${(-wrap(p, N) * rollItemH).toFixed(1)}px,0)`;
-
-      // Update active edition info only when look index changes
-      const activeIdx = wrap(Math.round(p), N);
-      if (activeIdx !== activeLookIndex) {
-        updateActiveLook(activeIdx);
+      // Update active model when look index changes
+      const activeIdx = clamp(Math.round(p), 0, 2);
+      if (activeIdx !== activeModelIndex) {
+        updateActiveModel(activeIdx);
       }
     }
 
@@ -579,14 +617,18 @@
       last = now;
       const was = p;
 
+      // STRICT CLAMPING: 0 (Edition 01) to 2 (Edition 03)
+      target = clamp(target, 0, 2);
+
       if (calm) {
         p = target;
       } else {
-        // Frame-rate independent critically damped exponential spring for silky smooth interpolation
         const friction = 0.082;
         const step = 1 - Math.pow(1 - friction, dt / 16.667);
         p += (target - p) * step;
       }
+
+      p = clamp(p, 0, 2);
 
       if (Math.abs(target - p) < 0.0002) p = target;
 
@@ -595,7 +637,7 @@
         paint();
       }
 
-      // Smooth custom cursor follower
+      // Custom cursor follower
       cx += (mx - cx) * 0.35;
       cy += (my - cy) * 0.35;
       if (ring) {
@@ -612,6 +654,7 @@
     stage.addEventListener('pointerleave', () => {
       if (ring) ring.classList.remove('show');
     });
+
     stage.addEventListener('pointermove', e => {
       const r = stage.getBoundingClientRect();
       mx = e.clientX - r.left;
@@ -619,8 +662,10 @@
       if (!down) return;
       const dx = e.clientX - sx;
       moved = Math.max(moved, Math.abs(dx));
-      target = st + dx / PULL();
+      // Dragging left (dx < 0) advances to next model; clamped to [0, 2]
+      target = clamp(st - dx / PULL(), 0, 2);
     });
+
     stage.addEventListener('pointerdown', e => {
       if (e.target.closest('a') || e.target.closest('button')) return;
       down = true;
@@ -638,54 +683,64 @@
       if (moved < 6) {
         const hit = document.elementsFromPoint(e.clientX, e.clientY).find(x => x.classList && x.classList.contains('m'));
         if (hit) {
-          let d = wrap(+hit.dataset.i - target, N);
-          d = Math.round(d);
-          if (d > 0 && d < N) target = Math.round(target) + d;
+          target = clamp(+hit.dataset.i, 0, 2);
         }
       } else {
-        target = Math.round(target);
+        target = clamp(Math.round(target), 0, 2);
       }
     }
 
     stage.addEventListener('pointerup', release);
     stage.addEventListener('pointercancel', release);
 
-    // FIXED WHEEL LISTENER: Smooth natural window scrolling, zero glitch/trap!
+    // WHEEL LISTENER: 3 Editions with Stop at 3rd Edition
     stage.addEventListener('wheel', e => {
       const runwaySection = document.getElementById('section-runway');
       const runwayRect = runwaySection ? runwaySection.getBoundingClientRect() : null;
 
-      // 1. When scrolling between sections (Runway is entering or leaving):
-      // NEVER preventDefault! Allow 100% natural smooth browser scroll!
+      // 1. When scrolling between sections: allow natural smooth window scroll
       if (!runwayRect || runwayRect.top > 20) {
         return;
       }
 
-      // 2. If user is scrolling UP (deltaY < 0):
+      // 2. If user is at Edition 01 and scrolling UP (deltaY < 0):
       // Allow natural page scroll back up to Section 3 / Reviews / Top!
-      if (e.deltaY < 0 && runwayRect.top >= -10) {
+      if (e.deltaY < 0 && target <= 0.05 && runwayRect.top >= -10) {
         return;
       }
 
-      // 3. If user is swiping horizontally or holding shift:
+      // 3. Trackpad horizontal swipe or Shift+Wheel:
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
         e.preventDefault();
-        target += clamp(e.deltaX, -100, 100) / 350;
+        target = clamp(target + clamp(e.deltaX, -100, 100) / 350, 0, 2);
         clearTimeout(wheelT);
-        wheelT = setTimeout(() => { target = Math.round(target); }, 140);
+        wheelT = setTimeout(() => { target = clamp(Math.round(target), 0, 2); }, 140);
         return;
       }
 
-      // 4. If user is at the bottom of the page (inside Runway) and scrolling DOWN:
-      // Walk the runway line forward
+      // 4. Vertical wheel:
+      // If scrolling DOWN (deltaY > 0):
       if (e.deltaY > 0 && runwayRect.top <= 10) {
+        // Once the 3rd image gets open, the scroll must stop there!
+        if (target >= 2) {
+          return;
+        }
         e.preventDefault();
-        target += clamp(e.deltaY, 0, 60) / 400;
+        target = clamp(target + clamp(e.deltaY, 0, 60) / 400, 0, 2);
         clearTimeout(wheelT);
-        wheelT = setTimeout(() => { target = Math.round(target); }, 140);
+        wheelT = setTimeout(() => { target = clamp(Math.round(target), 0, 2); }, 140);
+      }
+
+      // If scrolling UP (deltaY < 0) and target > 0:
+      if (e.deltaY < 0 && target > 0.05) {
+        e.preventDefault();
+        target = clamp(target + clamp(e.deltaY, -60, 0) / 400, 0, 2);
+        clearTimeout(wheelT);
+        wheelT = setTimeout(() => { target = clamp(Math.round(target), 0, 2); }, 140);
       }
     }, { passive: false });
 
+    // Keyboard Navigation: strictly clamped between 0 and 2
     window.addEventListener('keydown', e => {
       const runwaySection = document.getElementById('section-runway');
       if (!runwaySection) return;
@@ -693,11 +748,11 @@
       if (rect.bottom > 100 && rect.top < window.innerHeight) {
         if (['ArrowRight'].includes(e.key)) {
           e.preventDefault();
-          target = Math.round(target) + 1;
+          target = clamp(Math.round(target) + 1, 0, 2);
         }
         if (['ArrowLeft'].includes(e.key)) {
           e.preventDefault();
-          target = Math.round(target) - 1;
+          target = clamp(Math.round(target) - 1, 0, 2);
         }
       }
     });
@@ -707,8 +762,9 @@
       requestAnimationFrame(loop);
     }
 
-    // Preload all 11 scooter images
-    const allImages = Array.from(new Set(ALL_EDITIONS.map(x => x.image)));
+    // Preload all scooter images across the 3 models
+    const allImages = [];
+    MODELS.forEach(m => m.colors.forEach(c => allImages.push(c.image)));
 
     Promise.all(allImages.map(u => {
       const img = new Image();
@@ -718,9 +774,8 @@
       if (wait) wait.classList.add('gone');
     });
 
-    buildRail();
     buildRunway();
-    updateActiveLook(0);
+    updateActiveModel(0);
     requestAnimationFrame(loop);
   }
 

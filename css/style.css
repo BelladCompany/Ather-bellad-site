@@ -1735,24 +1735,34 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  scroll-behavior: smooth;
+  padding-bottom: calc(24 * var(--u));
+}
+
+.maison-vell-section .rail-cards-track::-webkit-scrollbar {
+  width: 5px;
+}
+
+.maison-vell-section .rail-cards-track::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 99px;
 }
 
 .maison-vell-section .card {
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: calc(12 * var(--u)) calc(18 * var(--u));
-  will-change: transform;
-  backface-visibility: hidden;
+  padding: calc(14 * var(--u)) calc(18 * var(--u));
   background: #f7f9fc;
   border: none !important;
   border-radius: 0 !important;
-  border-left: 3px solid transparent !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-left: 4px solid transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, border-left-color 0.2s;
   box-sizing: border-box;
@@ -1953,7 +1963,7 @@ body {
   font-family: var(--font-family);
   font-size: calc(9.5 * var(--u));
   font-weight: 700;
-  padding: calc(4 * var(--u)) calc(10 * var(--u));
+  padding: calc(4 * var(--u)) calc(12 * var(--u));
   border-radius: 99px;
   background: #eef2f7;
   color: var(--ink);
@@ -1962,11 +1972,18 @@ body {
   cursor: pointer;
 }
 
-.maison-vell-section .rail-select-btn:hover,
-.maison-vell-section .card.active-card .rail-select-btn {
+.maison-vell-section .rail-select-btn:hover {
   background: var(--ink);
   color: #ffffff;
   border-color: var(--ink);
+}
+
+.maison-vell-section .rail-select-btn.selected,
+.maison-vell-section .card.active-card .rail-select-btn {
+  background: var(--ather-green) !important;
+  color: #0b2e1e !important;
+  border-color: var(--ather-green) !important;
+  font-weight: 800 !important;
 }
 
 .maison-vell-section .add {
@@ -2100,9 +2117,12 @@ body {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0;
   }
   .maison-vell-section .card {
-    width: 180px;
+    flex-shrink: 0;
+    width: 200px;
     height: 100%;
     padding: 10px;
   }
