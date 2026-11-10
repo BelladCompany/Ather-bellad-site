@@ -1,20 +1,21 @@
 /**
  * ATHER RUNWAY DEPTH LOOKBOOK
- * Multi-depth interactive showcase featuring Ather's official electric scooters
- * and smart accessories with 3D parallax, depth of field, and silky smooth momentum physics.
- * 100% unified with Neurial Grotesk official Ather brand typography.
+ * Multi-depth interactive showcase featuring 3 Ather Models (Rizta, 450X, 450 Apex)
+ * and all official colorways with 3D parallax, real transparent cutouts, and silky momentum physics.
+ * 100% unified with Neurial Grotesk official brand typography.
  */
 (function () {
   'use strict';
 
-  // LINEUP 1: All Models (Model-Wise: Rizta Z, 450 Apex, 450X, Rizta S)
-  const LINEUP_ALL = [
+  // MODEL 1: Ather Rizta (6 Signature Colors)
+  const RIZTA_EDITIONS = [
     {
       id: 1,
+      modelLine: 'Ather Rizta',
       model: 'Ather Rizta Z (3.7 kWh)',
-      color: 'Champagne Gold',
-      badge: 'LUXURY DUAL-TONE',
-      tagline: 'Dual-tone luxury finish with 34L storage & integrated backrest',
+      color: 'Champagne Gold Duo',
+      badge: 'DUAL-TONE LUXURY',
+      tagline: 'Warm metallic luxury with slate grey contrast & integrated backrest',
       specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
       price: '₹1,44,999',
       image: 'images/rizta_gold_cutout.png',
@@ -23,84 +24,9 @@
     },
     {
       id: 2,
-      model: 'Ather 450 Apex (3.7 kWh)',
-      color: 'Indium Blue',
-      badge: 'FLAGSHIP PERFORMANCE',
-      tagline: 'Apex edition with transparent neon orange chassis and Warp+ mode',
-      specs: '157 km IDC Range · 100 km/h · 0-40 in 2.9s',
-      price: '₹1,89,999',
-      image: 'images/ather_apex_runway.png',
-      swatch: '#1c58d9',
-      aspect: 1.5
-    },
-    {
-      id: 3,
+      modelLine: 'Ather Rizta',
       model: 'Ather Rizta Z (3.7 kWh)',
-      color: 'Lumen Copper',
-      badge: 'SUNSET METALLIC',
-      tagline: 'Sunset metallic dual-tone with SkidControl™ traction control',
-      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
-      price: '₹1,44,999',
-      image: 'images/rizta_copper_cutout.png',
-      swatch: '#bf6c43',
-      aspect: 1.5
-    },
-    {
-      id: 4,
-      model: 'Ather 450X (3.7 kWh)',
-      color: 'Salt Green',
-      badge: 'SPORT PERFORMANCE',
-      tagline: 'Sport geometry in Salt Green matte with Google Maps & Warp mode',
-      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
-      price: '₹1,54,999',
-      image: 'images/ather_450x_runway.png',
-      swatch: '#cfded6',
-      aspect: 1.5
-    },
-    {
-      id: 5,
-      model: 'Ather Rizta Z (2.9 kWh)',
-      color: 'Cardamom Green Duo',
-      badge: 'NATURE SATIN DUO',
-      tagline: 'Nature-inspired satin green dual-tone with 34L underseat storage',
-      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
-      price: '₹1,34,999',
-      image: 'images/clean_rizta_green_duo.png',
-      swatch: '#496350',
-      aspect: 1.5
-    },
-    {
-      id: 6,
-      model: 'Ather Rizta S (2.9 kWh)',
-      color: 'Siachen White Mono',
-      badge: 'ARCTIC MONOTONE',
-      tagline: 'Pure glacier white monotone with DeepView™ digital dashboard',
-      specs: '123 km IDC Range · 80 km/h · 2.9 kWh Battery',
-      price: '₹1,09,999',
-      image: 'images/clean_rizta_white_mono.png',
-      swatch: '#e6ebf0',
-      aspect: 1.5
-    }
-  ];
-
-  // LINEUP 2: Rizta Signature Colors (Champagne Gold, Lumen Copper, Green, Blue, White, Slate Grey)
-  const LINEUP_RIZTA = [
-    {
-      id: 1,
-      model: 'Ather Rizta Z (3.7 kWh)',
-      color: 'Champagne Gold',
-      badge: 'LUXURY DUAL-TONE',
-      tagline: 'Dual-tone luxury finish with 34L storage & integrated backrest',
-      specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
-      price: '₹1,44,999',
-      image: 'images/rizta_gold_cutout.png',
-      swatch: '#cfa86e',
-      aspect: 1.5
-    },
-    {
-      id: 2,
-      model: 'Ather Rizta Z (3.7 kWh)',
-      color: 'Lumen Copper',
+      color: 'Lumen Copper Duo',
       badge: 'SUNSET METALLIC',
       tagline: 'Sunset metallic dual-tone with SkidControl™ traction control',
       specs: '159 km IDC Range · 80 km/h · 4.3 kWh Battery',
@@ -111,6 +37,7 @@
     },
     {
       id: 3,
+      modelLine: 'Ather Rizta',
       model: 'Ather Rizta Z (2.9 kWh)',
       color: 'Cardamom Green Duo',
       badge: 'NATURE SATIN DUO',
@@ -123,6 +50,7 @@
     },
     {
       id: 4,
+      modelLine: 'Ather Rizta',
       model: 'Ather Rizta Z (2.9 kWh)',
       color: 'Pangong Blue Duo',
       badge: 'MOUNTAIN LAKE DUO',
@@ -135,6 +63,7 @@
     },
     {
       id: 5,
+      modelLine: 'Ather Rizta',
       model: 'Ather Rizta S (2.9 kWh)',
       color: 'Siachen White Mono',
       badge: 'ARCTIC MONOTONE',
@@ -147,6 +76,7 @@
     },
     {
       id: 6,
+      modelLine: 'Ather Rizta',
       model: 'Ather Rizta Z (2.9 kWh)',
       color: 'Slate Grey Duo',
       badge: 'CONTEMPORARY DUO',
@@ -159,95 +89,103 @@
     }
   ];
 
-  // 12 Ather Smart Accessories & Official Gear
-  const ACCESSORIES = [
+  // MODEL 2: Ather 450X (4 Signature Colors)
+  const FOUR_FIFTY_X_EDITIONS = [
     {
-      name: 'Ather Halo Smart Helmet',
-      category: 'Smart Audio & Safety',
-      price: '₹12,999',
-      icon: 'helm',
-      desc: 'Harman Kardon acoustics with ChitChat auto intercom'
+      id: 7,
+      modelLine: 'Ather 450X',
+      model: 'Ather 450X (3.7 kWh)',
+      color: 'Space Grey',
+      badge: 'STEALTH PERFORMANCE',
+      tagline: 'Aerodynamic sport geometry in stealth gunmetal Space Grey finish',
+      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+      price: '₹1,54,999',
+      image: 'images/ather_450x_spacegrey.png',
+      swatch: '#42474e',
+      aspect: 1.5
     },
     {
-      name: 'Ather Duo Home Fast Charger',
-      category: 'Home Fast Charging',
-      price: '₹9,999',
-      icon: 'charger',
-      desc: '0-80% in 3.5 hrs with auto temperature cutoff'
+      id: 8,
+      modelLine: 'Ather 450X',
+      model: 'Ather 450X (3.7 kWh)',
+      color: 'True Red',
+      badge: 'RACING SPORT',
+      tagline: 'High-contrast vibrant True Red with track-inspired graphics',
+      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+      price: '₹1,54,999',
+      image: 'images/ather_450x_red.png',
+      swatch: '#d92626',
+      aspect: 1.5
     },
     {
-      name: 'Smart TPMS Tyre Sensor',
-      category: 'Telemetry Sensors',
-      price: '₹4,999',
-      icon: 'tpms',
-      desc: 'Live pressure & temperature monitor on 7" dashboard'
+      id: 9,
+      modelLine: 'Ather 450X',
+      model: 'Ather 450X (3.7 kWh)',
+      color: 'Salt Green',
+      badge: 'PASTEL MATTE',
+      tagline: 'Contemporary sage green matte with Google Maps & Warp mode',
+      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+      price: '₹1,54,999',
+      image: 'images/ather_450x_runway.png',
+      swatch: '#cfded6',
+      aspect: 1.5
     },
     {
-      name: 'Rizta Deluxe Backrest',
-      category: 'Pillion Comfort',
-      price: '₹2,499',
-      icon: 'backrest',
-      desc: 'Ergonomic lumbar pillion support with high-resilience foam'
-    },
-    {
-      name: 'Rizta Frunk Front Luggage',
-      category: 'Storage Upgrades',
-      price: '₹2,999',
-      icon: 'frunk',
-      desc: '22L weatherproof quick-release modular front trunk'
-    },
-    {
-      name: 'Rizta Floor Organiser Mat',
-      category: 'Protection & Grip',
-      price: '₹1,999',
-      icon: 'mat',
-      desc: 'Custom contoured anti-slip all-weather grooved floor mat'
-    },
-    {
-      name: 'Ather Portable Travel EVSE',
-      category: 'Travel Charging',
-      price: '₹6,999',
-      icon: 'portable',
-      desc: 'Dual 5A/15A socket compatible emergency travel charger'
-    },
-    {
-      name: 'Ather Pro Riding Jacket',
-      category: 'Apparel & Gear',
-      price: '₹7,499',
-      icon: 'jacket',
-      desc: 'CE Level 2 armor protection with high-airflow Cordura mesh'
-    },
-    {
-      name: 'All-Weather Protective Cover',
-      category: 'Vehicle Care',
-      price: '₹1,799',
-      icon: 'cover',
-      desc: 'Waterproof heavy-duty UV reflective protective body cover'
-    },
-    {
-      name: 'Ather Touchscreen 9H Shield',
-      category: 'Screen Protection',
-      price: '₹699',
-      icon: 'guard',
-      desc: '9H tempered oleophobic scratch & glare resistant glass'
-    },
-    {
-      name: 'Foldable Side Footstep',
-      category: 'Hardware & Guards',
-      price: '₹1,499',
-      icon: 'footstep',
-      desc: 'Aircraft-grade anodized aluminium pillion footstep'
-    },
-    {
-      name: 'Ather Grip Pro Handlebars',
-      category: 'Performance Controls',
-      price: '₹899',
-      icon: 'grips',
-      desc: 'Micro-textured anti-vibration high-grip rubber handlebar set'
+      id: 10,
+      modelLine: 'Ather 450X',
+      model: 'Ather 450X (3.7 kWh)',
+      color: 'Cosmic Black',
+      badge: 'MIDNIGHT GLOSS',
+      tagline: 'High-gloss deep cosmic black with contrasting cyan accents',
+      specs: '150 km IDC Range · 90 km/h · 0-40 in 3.3s',
+      price: '₹1,54,999',
+      image: 'images/ather_450x_black.png',
+      swatch: '#1a1c20',
+      aspect: 1.5
     }
   ];
 
-  // Depth stops from d = -1 (leaving past the rail) to d = 5 (arriving out of distance haze)
+  // MODEL 3: Ather 450 Apex (1 Flagship Special Edition)
+  const APEX_EDITIONS = [
+    {
+      id: 11,
+      modelLine: 'Ather 450 Apex',
+      model: 'Ather 450 Apex (3.7 kWh)',
+      color: 'Indium Blue Special Edition',
+      badge: 'FLAGSHIP WARP+',
+      tagline: 'Warp+ mode with transparent neon orange chassis accents',
+      specs: '157 km IDC Range · 100 km/h · 0-40 in 2.9s',
+      price: '₹1,89,999',
+      image: 'images/ather_apex_runway.png',
+      swatch: '#1c58d9',
+      aspect: 1.5
+    }
+  ];
+
+  // ALL 11 EDITIONS COMBINED
+  const ALL_EDITIONS = [
+    ...RIZTA_EDITIONS,
+    ...FOUR_FIFTY_X_EDITIONS,
+    ...APEX_EDITIONS
+  ];
+
+  // 12 Ather Smart Accessories & Official Gear
+  const ACCESSORIES = [
+    { name: 'Ather Halo Smart Helmet', category: 'Smart Audio & Safety', price: '₹12,999', icon: 'helm', desc: 'Harman Kardon acoustics with ChitChat auto intercom' },
+    { name: 'Ather Duo Home Fast Charger', category: 'Home Fast Charging', price: '₹9,999', icon: 'charger', desc: '0-80% in 3.5 hrs with auto temperature cutoff' },
+    { name: 'Smart TPMS Tyre Sensor', category: 'Telemetry Sensors', price: '₹4,999', icon: 'tpms', desc: 'Live pressure & temperature monitor on 7" dashboard' },
+    { name: 'Rizta Deluxe Backrest', category: 'Pillion Comfort', price: '₹2,499', icon: 'backrest', desc: 'Ergonomic lumbar pillion support with high-resilience foam' },
+    { name: 'Rizta Frunk Front Luggage', category: 'Storage Upgrades', price: '₹2,999', icon: 'frunk', desc: '22L weatherproof quick-release modular front trunk' },
+    { name: 'Rizta Floor Organiser Mat', category: 'Protection & Grip', price: '₹1,999', icon: 'mat', desc: 'Custom contoured anti-slip all-weather grooved floor mat' },
+    { name: 'Ather Portable Travel EVSE', category: 'Travel Charging', price: '₹6,999', icon: 'portable', desc: 'Dual 5A/15A socket compatible emergency travel charger' },
+    { name: 'Ather Pro Riding Jacket', category: 'Apparel & Gear', price: '₹7,499', icon: 'jacket', desc: 'CE Level 2 armor protection with high-airflow Cordura mesh' },
+    { name: 'All-Weather Protective Cover', category: 'Vehicle Care', price: '₹1,799', icon: 'cover', desc: 'Waterproof heavy-duty UV reflective protective body cover' },
+    { name: 'Ather Touchscreen 9H Shield', category: 'Screen Protection', price: '₹699', icon: 'guard', desc: '9H tempered oleophobic scratch & glare resistant glass' },
+    { name: 'Foldable Side Footstep', category: 'Hardware & Guards', price: '₹1,499', icon: 'footstep', desc: 'Aircraft-grade anodized aluminium pillion footstep' },
+    { name: 'Ather Grip Pro Handlebars', category: 'Performance Controls', price: '₹899', icon: 'grips', desc: 'Micro-textured anti-vibration high-grip rubber handlebar set' }
+  ];
+
+  // Depth stops
   const KX = [1.18, .68, .46, .33, .22, .14, .08];
   const KF = [1.14, .90, .785, .71, .655, .62, .59];
   const KH = [1.18, .82, .56, .42, .32, .24, .18];
@@ -290,12 +228,16 @@
           specsEl = $('lookSpecs'),
           priceEl = $('lookPrice'),
           cartEl = $('cart'),
-          runwayHeading = $('runwayHeading');
+          runwayHeading = $('runwayHeading'),
+          railCounter = $('railCounter'),
+          railViewToggle = $('railViewToggle'),
+          railTrack = $('railTrack') || rail;
 
     if (!stage || !rail || !line || !roll) return;
 
-    let currentMode = 'all'; // 'all' or 'rizta'
-    let EDITIONS = LINEUP_ALL;
+    let currentMode = 'all'; // 'all', 'rizta', '450x', 'apex'
+    let currentRailView = 'colors'; // 'colors' or 'gear'
+    let EDITIONS = ALL_EDITIONS;
     let N = EDITIONS.length;
 
     const wrap = (x, n) => ((x % n) + n) % n;
@@ -307,7 +249,7 @@
     let W = 0, H = 0, base = 0, cardS = 0, rollItemH = 36, side = false, dirty = true;
     let p = 0, target = 0, last = performance.now(), activeLookIndex = -1;
 
-    // Render Swatches with Tooltip & Jump
+    // Render Swatches
     function renderSwatches() {
       if (!swatchesRow) return;
       swatchesRow.innerHTML = '';
@@ -325,7 +267,7 @@
       });
     }
 
-    // Build the Scooter Runway Line
+    // Build Scooter 3D Runway Line
     function buildRunway() {
       line.innerHTML = '';
       people = EDITIONS.map((item, i) => {
@@ -358,44 +300,109 @@
       dirty = true;
     }
 
-    // Build Accessory Product Cards
+    // Build Right Rail Cards (Colored Model Images OR Accessories)
     function buildRail() {
-      const header = rail.querySelector('.rail-header');
-      rail.innerHTML = '';
-      if (header) rail.append(header);
+      railTrack.innerHTML = '';
 
-      cards = ACCESSORIES.map((item, i) => {
-        const card = document.createElement('article');
-        card.className = 'card' + (i % 2 ? ' alt' : '');
-        card.innerHTML = `
-          <button class="fav" aria-pressed="false" aria-label="Save ${item.name}">
-            <svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.600 4.600 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg>
-          </button>
-          <div class="shot">${makeAccessorySvg(item.icon)}</div>
-          <div class="meta">
-            <span class="acc-cat">${item.category}</span>
-            <h3 class="acc-title">${item.name}</h3>
-            <p class="acc-desc">${item.desc}</p>
-            <div class="price-row">
-              <span class="acc-price">${item.price}</span>
-              <button class="add" aria-label="Add ${item.name} to cart" title="Add to bag"></button>
+      if (currentRailView === 'colors') {
+        // Show Colored Model Editions
+        if (railCounter) railCounter.textContent = `${EDITIONS.length} Editions Available`;
+
+        cards = EDITIONS.map((item, i) => {
+          const card = document.createElement('article');
+          card.className = 'card' + (i % 2 ? ' alt' : '') + (i === activeLookIndex ? ' active-card' : '');
+          card.dataset.index = i;
+          card.innerHTML = `
+            <div class="rail-card-top">
+              <span class="rail-badge">${item.badge}</span>
+              <button class="fav" aria-pressed="false" aria-label="Save ${item.color}">
+                <svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.600 4.600 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg>
+              </button>
             </div>
-          </div>
-        `;
-        rail.append(card);
-        return card;
+            <div class="rail-thumb-wrap">
+              <img src="${item.image}" alt="${item.model} in ${item.color}" class="rail-scooter-thumb" draggable="false">
+            </div>
+            <div class="meta">
+              <div class="rail-color-tag">
+                <span class="rail-swatch-chip" style="background-color: ${item.swatch};"></span>
+                <span class="rail-color-title">${item.color}</span>
+              </div>
+              <h3 class="acc-title">${item.model}</h3>
+              <p class="acc-desc">${item.specs}</p>
+              <div class="price-row">
+                <div class="rail-price-block">
+                  <span class="rail-price-prefix">Ex-Showroom</span>
+                  <span class="acc-price">${item.price}</span>
+                </div>
+                <button class="rail-select-btn" type="button" aria-label="View on runway">View 3D</button>
+              </div>
+            </div>
+          `;
+
+          // Clicking card rotates runway to this exact scooter!
+          card.addEventListener('click', (e) => {
+            if (e.target.closest('.fav')) return;
+            jumpToLook(i);
+          });
+
+          railTrack.append(card);
+          return card;
+        });
+
+      } else {
+        // Show Accessories View
+        if (railCounter) railCounter.textContent = `${ACCESSORIES.length} Smart Gear Items`;
+
+        cards = ACCESSORIES.map((item, i) => {
+          const card = document.createElement('article');
+          card.className = 'card' + (i % 2 ? ' alt' : '');
+          card.innerHTML = `
+            <button class="fav" aria-pressed="false" aria-label="Save ${item.name}">
+              <svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.600 4.600 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg>
+            </button>
+            <div class="shot">${makeAccessorySvg(item.icon)}</div>
+            <div class="meta">
+              <span class="acc-cat">${item.category}</span>
+              <h3 class="acc-title">${item.name}</h3>
+              <p class="acc-desc">${item.desc}</p>
+              <div class="price-row">
+                <span class="acc-price">${item.price}</span>
+                <button class="add" aria-label="Add ${item.name} to cart" title="Add to bag"></button>
+              </div>
+            </div>
+          `;
+          railTrack.append(card);
+          return card;
+        });
+      }
+
+      size();
+      dirty = true;
+    }
+
+    // Toggle between Colors & Gear in Right Rail
+    if (railViewToggle) {
+      railViewToggle.addEventListener('click', e => {
+        const btn = e.target.closest('.rail-toggle-btn');
+        if (!btn || btn.dataset.view === currentRailView) return;
+        railViewToggle.querySelectorAll('.rail-toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentRailView = btn.dataset.view;
+        buildRail();
       });
     }
 
-    // Cart and Wishlist Click Handlers
+    // Rail Favorite and Cart Handlers
     rail.addEventListener('click', e => {
       const favBtn = e.target.closest('.fav');
       if (favBtn) {
+        e.stopPropagation();
         const isFav = favBtn.getAttribute('aria-pressed') === 'true';
         favBtn.setAttribute('aria-pressed', !isFav);
       }
       const addBtn = e.target.closest('.add');
       if (addBtn) {
+        e.stopPropagation();
         cartCount++;
         if (cartEl) cartEl.textContent = cartCount;
         addBtn.classList.add('added');
@@ -403,7 +410,7 @@
       }
     });
 
-    // Lineup Mode Switcher (All Models vs Rizta Colorways)
+    // 3 Models + All Lineup Switcher
     if (lineupTabs) {
       lineupTabs.addEventListener('click', e => {
         const tab = e.target.closest('.lineup-tab');
@@ -412,14 +419,27 @@
         tab.classList.add('active');
 
         currentMode = tab.dataset.mode;
-        EDITIONS = currentMode === 'rizta' ? LINEUP_RIZTA : LINEUP_ALL;
+        if (currentMode === 'rizta') {
+          EDITIONS = RIZTA_EDITIONS;
+        } else if (currentMode === '450x') {
+          EDITIONS = FOUR_FIFTY_X_EDITIONS;
+        } else if (currentMode === 'apex') {
+          EDITIONS = APEX_EDITIONS;
+        } else {
+          EDITIONS = ALL_EDITIONS;
+        }
+
         N = EDITIONS.length;
 
         if (runwayHeading) {
-          runwayHeading.textContent = currentMode === 'rizta' ? 'RIZTA SIGNATURE COLORWAYS' : 'OFFICIAL ATHER LINEUP';
+          if (currentMode === 'rizta') runwayHeading.textContent = 'ATHER RIZTA SIGNATURE COLORWAYS';
+          else if (currentMode === '450x') runwayHeading.textContent = 'ATHER 450X SPORT LINEUP';
+          else if (currentMode === 'apex') runwayHeading.textContent = 'ATHER 450 APEX INDIUM BLUE';
+          else runwayHeading.textContent = 'OFFICIAL ATHER SIGNATURE LINEUP';
         }
 
         buildRunway();
+        buildRail();
         target = 0;
         p = 0;
         activeLookIndex = -1;
@@ -453,6 +473,14 @@
           else d.classList.remove('active');
         });
       }
+
+      // Update active rail card highlight
+      if (currentRailView === 'colors' && cards.length) {
+        cards.forEach((c, i) => {
+          if (i === idx) c.classList.add('active-card');
+          else c.classList.remove('active-card');
+        });
+      }
     }
 
     function size() {
@@ -466,20 +494,21 @@
         m.e.style.height = base.toFixed(1) + 'px';
       });
 
-      cardS = side ? 175 : Math.max(160, rail.clientHeight / 3);
+      const trackH = railTrack.clientHeight || (rail.clientHeight - 52);
+      cardS = side ? 180 : Math.max(220, Math.round(trackH / 2.7));
       cards.forEach(c => {
         c.style.height = side ? '100%' : cardS + 'px';
       });
 
       if (roll.firstChild) {
-        rollItemH = roll.firstChild.offsetHeight || 36;
+        rollItemH = roll.firstChild.offsetHeight || 38;
       }
       dirty = true;
     }
 
     window.addEventListener('resize', size);
 
-    // Silky Smooth Paint Loop with GPU Optimizations
+    // Silky Smooth Paint Loop with GPU Shader Caching
     function paint() {
       people.forEach((m, i) => {
         let d = wrap(i - p, N);
@@ -527,7 +556,8 @@
       });
 
       // Product Rail Loop Scrolling
-      const all = cardS * ACCESSORIES.length;
+      const totalItems = cards.length || 1;
+      const all = cardS * totalItems;
       cards.forEach((c, i) => {
         let y = wrap(i * cardS - p * 2 * cardS, all);
         if (y > all - cardS) y -= all;
@@ -620,16 +650,40 @@
     stage.addEventListener('pointerup', release);
     stage.addEventListener('pointercancel', release);
 
+    // FIXED WHEEL LISTENER: Smooth natural window scrolling, zero glitch/trap!
     stage.addEventListener('wheel', e => {
       const runwaySection = document.getElementById('section-runway');
-      // If user is at edition 0 and scrolling up, allow natural page scroll back up to Section 1-3
-      if (e.deltaY < 0 && target <= 0.05 && runwaySection && window.scrollY <= runwaySection.offsetTop + 30) {
+      const runwayRect = runwaySection ? runwaySection.getBoundingClientRect() : null;
+
+      // 1. When scrolling between sections (Runway is entering or leaving):
+      // NEVER preventDefault! Allow 100% natural smooth browser scroll!
+      if (!runwayRect || runwayRect.top > 20) {
         return;
       }
-      e.preventDefault();
-      target += clamp(e.deltaY + e.deltaX, -100, 100) / 450;
-      clearTimeout(wheelT);
-      wheelT = setTimeout(() => { target = Math.round(target); }, 140);
+
+      // 2. If user is scrolling UP (deltaY < 0):
+      // Allow natural page scroll back up to Section 3 / Reviews / Top!
+      if (e.deltaY < 0 && runwayRect.top >= -10) {
+        return;
+      }
+
+      // 3. If user is swiping horizontally or holding shift:
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
+        e.preventDefault();
+        target += clamp(e.deltaX, -100, 100) / 350;
+        clearTimeout(wheelT);
+        wheelT = setTimeout(() => { target = Math.round(target); }, 140);
+        return;
+      }
+
+      // 4. If user is at the bottom of the page (inside Runway) and scrolling DOWN:
+      // Walk the runway line forward
+      if (e.deltaY > 0 && runwayRect.top <= 10) {
+        e.preventDefault();
+        target += clamp(e.deltaY, 0, 60) / 400;
+        clearTimeout(wheelT);
+        wheelT = setTimeout(() => { target = Math.round(target); }, 140);
+      }
     }, { passive: false });
 
     window.addEventListener('keydown', e => {
@@ -637,11 +691,11 @@
       if (!runwaySection) return;
       const rect = stage.getBoundingClientRect();
       if (rect.bottom > 100 && rect.top < window.innerHeight) {
-        if (['ArrowRight', 'ArrowDown'].includes(e.key)) {
+        if (['ArrowRight'].includes(e.key)) {
           e.preventDefault();
           target = Math.round(target) + 1;
         }
-        if (['ArrowLeft', 'ArrowUp'].includes(e.key)) {
+        if (['ArrowLeft'].includes(e.key)) {
           e.preventDefault();
           target = Math.round(target) - 1;
         }
@@ -653,11 +707,8 @@
       requestAnimationFrame(loop);
     }
 
-    // Preload all scooter images
-    const allImages = Array.from(new Set([
-      ...LINEUP_ALL.map(x => x.image),
-      ...LINEUP_RIZTA.map(x => x.image)
-    ]));
+    // Preload all 11 scooter images
+    const allImages = Array.from(new Set(ALL_EDITIONS.map(x => x.image)));
 
     Promise.all(allImages.map(u => {
       const img = new Image();

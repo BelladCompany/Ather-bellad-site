@@ -462,15 +462,29 @@
       scrollbarThumb.style.transform = `translateY(${thumbY}px)`;
     }
 
-    // 2. Active Nav Link Highlighting
+    // 2. Active Nav Link Highlighting & Section Viewport Management
     const navLinks = document.querySelectorAll('.nav-item-link');
     navLinks.forEach((link) => link.classList.remove('active'));
-    if (p < 0.22) {
-      navLinks[0]?.classList.add('active'); // Shop
-    } else if (p < 0.78) {
-      navLinks[1]?.classList.add('active'); // Customize
+    const runwaySection = document.getElementById('section-runway');
+    const viewportEl = document.getElementById('viewport');
+
+    if (runwaySection && window.scrollY >= (runwaySection.offsetTop - window.innerHeight * 0.2)) {
+      navLinks[3]?.classList.add('active'); // Runway
+      if (viewportEl) {
+        viewportEl.style.pointerEvents = 'none';
+      }
     } else {
-      navLinks[2]?.classList.add('active'); // Reviews
+      if (viewportEl) {
+        viewportEl.style.opacity = '1';
+        viewportEl.style.pointerEvents = 'auto';
+      }
+      if (p < 0.22) {
+        navLinks[0]?.classList.add('active'); // Shop
+      } else if (p < 0.78) {
+        navLinks[1]?.classList.add('active'); // Customize
+      } else {
+        navLinks[2]?.classList.add('active'); // Reviews
+      }
     }
 
     // -------------------------------------------------------------
@@ -734,16 +748,6 @@
   // 2. High-performance Native Scroll Listener
   window.addEventListener('scroll', () => {
     updateScrollExperience(getNormalizedScroll());
-  }, { passive: true });
-
-  // 3. Universal Wheel Handler
-  window.addEventListener('wheel', (e) => {
-    if (reserveModal && reserveModal.classList.contains('open')) return;
-
-    window.scrollBy({
-      top: e.deltaY,
-      behavior: 'auto'
-    });
   }, { passive: true });
 
   // 4. Keyboard Arrow / Page Navigation

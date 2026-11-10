@@ -401,7 +401,7 @@
 
           <!-- Top Stage Controls (Minimalist floating bar) -->
           <div class="stage-topbar">
-            <a href="#hero" class="stage-back-btn" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+            <a href="#section-specs" class="stage-back-btn" onclick="const st = document.getElementById('scroll-track'); window.scrollTo({top: st ? st.offsetHeight - window.innerHeight : 0, behavior: 'smooth'}); return false;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
@@ -409,15 +409,17 @@
               <span>Back to Ather 3D</span>
             </a>
 
-            <!-- Lineup Filter Switcher -->
+            <!-- 3 Ather Models + All Models Switcher -->
             <div class="stage-lineup-tabs" id="lineupTabs" role="tablist">
-              <button class="lineup-tab active" data-mode="all" type="button" role="tab">All Models</button>
-              <button class="lineup-tab" data-mode="rizta" type="button" role="tab">Rizta Colorways</button>
+              <button class="lineup-tab active" data-mode="all" type="button" role="tab">All (11)</button>
+              <button class="lineup-tab" data-mode="rizta" type="button" role="tab">Ather Rizta (6)</button>
+              <button class="lineup-tab" data-mode="450x" type="button" role="tab">Ather 450X (4)</button>
+              <button class="lineup-tab" data-mode="apex" type="button" role="tab">450 Apex (1)</button>
             </div>
 
             <!-- Hint badge -->
             <div class="stage-drag-hint">
-              <span>Drag / Scroll to Rotate</span>
+              <span>Drag / Click to Rotate</span>
             </div>
           </div>
 
@@ -472,12 +474,19 @@
           <div class="ring" id="ring"></div>
         </section>
 
-        <!-- Right Side Product Rail -->
-        <aside class="rail" id="rail" aria-label="Ather Smart Accessories and Gear">
+        <!-- Right Side Product Rail (Ather Official Colored Models & Colorways Showcase) -->
+        <aside class="rail" id="rail" aria-label="Ather Models and Colorways Showcase">
           <div class="rail-header">
-            <span class="rail-title">Smart Accessories</span>
-            <span class="rail-cart-count">Bag (<span id="cart">0</span>)</span>
+            <div class="rail-header-titles">
+              <span class="rail-title">Official Colorways</span>
+              <span class="rail-counter" id="railCounter">11 Editions Available</span>
+            </div>
+            <div class="rail-view-toggle" id="railViewToggle">
+              <button class="rail-toggle-btn active" data-view="colors" type="button">Colors</button>
+              <button class="rail-toggle-btn" data-view="gear" type="button">Gear (<span id="cart">0</span>)</button>
+            </div>
           </div>
+          <div class="rail-cards-track" id="railTrack"></div>
         </aside>
       </main>
     </div>

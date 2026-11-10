@@ -1647,29 +1647,39 @@ body {
   margin: calc(-17 * var(--u)) 0 0 calc(-42 * var(--u));
 }
 
-/* Right Rail: Authentic Ather Smart Accessories */
+/* Right Rail: Authentic Ather Official Models & Colorways Showcase */
 .maison-vell-section .rail {
   position: relative;
   overflow: hidden;
-  background: #f3f6fa;
+  background: #f4f6fa;
   min-height: 0;
   height: 100%;
 }
 
 .maison-vell-section .rail-header {
-  position: sticky;
+  position: absolute;
   top: 0;
-  z-index: 5;
+  left: 0;
+  right: 0;
+  height: calc(52 * var(--u));
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: calc(14 * var(--u)) calc(20 * var(--u));
-  background: #eef2f7;
+  padding: 0 calc(16 * var(--u));
+  background: #ffffff;
   border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.maison-vell-section .rail-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .maison-vell-section .rail-title {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
   font-size: calc(11 * var(--u));
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1677,11 +1687,55 @@ body {
   color: var(--ink);
 }
 
-.maison-vell-section .rail-cart-count {
+.maison-vell-section .rail-counter {
   font-family: var(--font-family);
-  font-size: calc(10.5 * var(--u));
+  font-size: calc(9 * var(--u));
+  font-weight: 500;
+  color: var(--mid);
+  letter-spacing: 0.02em;
+}
+
+.maison-vell-section .rail-view-toggle {
+  display: flex;
+  align-items: center;
+  background: #eef2f7;
+  border-radius: 99px;
+  padding: 2px;
+  gap: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.maison-vell-section .rail-toggle-btn {
+  padding: calc(4 * var(--u)) calc(10 * var(--u));
+  border-radius: 99px;
+  font-family: var(--font-family);
+  font-size: calc(9.5 * var(--u));
   font-weight: 600;
   color: var(--mid);
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.maison-vell-section .rail-toggle-btn:hover {
+  color: var(--ink);
+}
+
+.maison-vell-section .rail-toggle-btn.active {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.maison-vell-section .rail-cards-track {
+  position: absolute;
+  top: calc(52 * var(--u));
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
 }
 
 .maison-vell-section .card {
@@ -1691,25 +1745,68 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: calc(16 * var(--u)) calc(22 * var(--u));
+  padding: calc(12 * var(--u)) calc(18 * var(--u));
   will-change: transform;
   backface-visibility: hidden;
-  background: #f3f6fa;
+  background: #f7f9fc;
   border: none !important;
   border-radius: 0 !important;
+  border-left: 3px solid transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, border-left-color 0.2s;
+  box-sizing: border-box;
 }
 
 .maison-vell-section .card.alt {
   background: #ffffff;
 }
 
-.maison-vell-section .fav {
-  position: absolute;
-  left: calc(20 * var(--u));
-  top: calc(16 * var(--u));
-  width: calc(20 * var(--u));
-  height: calc(20 * var(--u));
-  z-index: 2;
+.maison-vell-section .card:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+.maison-vell-section .card.active-card {
+  background: #ffffff !important;
+  border-left-color: var(--ather-green) !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 210, 144, 0.15), 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+.maison-vell-section .rail-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: calc(3 * var(--u));
+}
+
+.maison-vell-section .rail-badge {
+  font-family: var(--font-family);
+  font-size: calc(8.5 * var(--u));
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ather-dark-green);
+  background: rgba(0, 210, 144, 0.12);
+  padding: calc(2 * var(--u)) calc(7 * var(--u));
+  border-radius: 4px;
+}
+
+.maison-vell-section .rail-card-top .fav {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: calc(18 * var(--u));
+  height: calc(18 * var(--u));
+  color: var(--dim);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maison-vell-section .rail-card-top .fav:hover {
   color: var(--ink);
 }
 
@@ -1725,6 +1822,51 @@ body {
 .maison-vell-section .fav[aria-pressed=true] svg {
   fill: var(--ather-green);
   stroke: var(--ather-dark-green);
+}
+
+.maison-vell-section .rail-thumb-wrap {
+  width: 100%;
+  height: calc(75 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: calc(2 * var(--u)) 0;
+  pointer-events: none;
+}
+
+.maison-vell-section .rail-scooter-thumb {
+  max-width: 92%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.1));
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.maison-vell-section .card:hover .rail-scooter-thumb {
+  transform: scale(1.05);
+}
+
+.maison-vell-section .rail-color-tag {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  margin-bottom: calc(2 * var(--u));
+}
+
+.maison-vell-section .rail-swatch-chip {
+  width: calc(10 * var(--u));
+  height: calc(10 * var(--u));
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.maison-vell-section .rail-color-title {
+  font-family: var(--font-family);
+  font-size: calc(10 * var(--u));
+  font-weight: 600;
+  color: var(--mid);
+  letter-spacing: 0.02em;
 }
 
 .maison-vell-section .shot {
@@ -1747,7 +1889,7 @@ body {
 .maison-vell-section .meta {
   display: flex;
   flex-direction: column;
-  margin-top: calc(6 * var(--u));
+  margin-top: calc(2 * var(--u));
 }
 
 .maison-vell-section .acc-cat {
@@ -1762,34 +1904,69 @@ body {
 }
 
 .maison-vell-section .acc-title {
-  font-weight: 700;
-  font-size: calc(12.5 * var(--u));
-  letter-spacing: -0.01em;
-  margin: 0;
   font-family: var(--font-family);
+  font-size: calc(12 * var(--u));
+  font-weight: 700;
   color: var(--ink);
+  margin: 0;
+  line-height: 1.25;
 }
 
 .maison-vell-section .acc-desc {
-  font-size: calc(11 * var(--u));
-  line-height: 1.35;
+  font-family: var(--font-family);
+  font-size: calc(9.5 * var(--u));
   color: var(--mid);
-  margin: 3px 0 6px;
-  font-family: var(--font-body);
+  margin: calc(2 * var(--u)) 0 calc(5 * var(--u));
+  line-height: 1.35;
 }
 
 .maison-vell-section .price-row {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  margin-top: calc(2 * var(--u));
+  margin-top: auto;
+}
+
+.maison-vell-section .rail-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.maison-vell-section .rail-price-prefix {
+  font-family: var(--font-family);
+  font-size: calc(8 * var(--u));
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--mid);
+  letter-spacing: 0.04em;
 }
 
 .maison-vell-section .acc-price {
-  font-family: var(--font-display);
-  font-size: calc(14 * var(--u));
+  font-family: var(--font-family);
+  font-size: calc(13 * var(--u));
   font-weight: 800;
   color: var(--ink);
+  line-height: 1.1;
+}
+
+.maison-vell-section .rail-select-btn {
+  font-family: var(--font-family);
+  font-size: calc(9.5 * var(--u));
+  font-weight: 700;
+  padding: calc(4 * var(--u)) calc(10 * var(--u));
+  border-radius: 99px;
+  background: #eef2f7;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.maison-vell-section .rail-select-btn:hover,
+.maison-vell-section .card.active-card .rail-select-btn {
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
 }
 
 .maison-vell-section .add {
@@ -1914,10 +2091,20 @@ body {
     padding-right: 0;
     padding-bottom: 6px;
   }
+  .maison-vell-section .rail-header {
+    height: 44px;
+    padding: 0 12px;
+  }
+  .maison-vell-section .rail-cards-track {
+    top: 44px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+  }
   .maison-vell-section .card {
-    width: 170px;
+    width: 180px;
     height: 100%;
-    padding: 12px;
+    padding: 10px;
   }
   .maison-vell-section .fav {
     left: 10px;
