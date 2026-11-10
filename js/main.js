@@ -36,7 +36,6 @@
   const scrollbarThumb = document.getElementById('scrollbarThumb');
   const customScrollbar = document.getElementById('customScrollbar');
   const techGrid = document.getElementById('techGrid');
-  const scooterSpotlight = document.getElementById('scooterSpotlight');
 
   const secHero = document.getElementById('section-hero');
   const secSpecs = document.getElementById('section-specs');
@@ -107,75 +106,11 @@
   rearRimLight.position.set(8, 4, -4);
   scene.add(rearRimLight);
 
-  // Floor underglow light
-  const underglowLight = new THREE.PointLight(0xffb300, 3.6, 10);
-  underglowLight.position.set(0, -0.9, 0);
-  scene.add(underglowLight);
-
   // =========================================================================
   // GROUND STAGE & PARTICLE EFFECTS
   // =========================================================================
 
-  // 1. Ground Reflective Disc (Studio pedestal glow)
-  const groundCanvas = document.createElement('canvas');
-  groundCanvas.width = 512;
-  groundCanvas.height = 512;
-  const gctx = groundCanvas.getContext('2d');
-  
-  function drawGroundGlow(primaryHex) {
-    gctx.clearRect(0, 0, 512, 512);
-    const gradient = gctx.createRadialGradient(256, 256, 15, 256, 256, 256);
-    gradient.addColorStop(0, primaryHex + '44');
-    gradient.addColorStop(0.35, primaryHex + '20');
-    gradient.addColorStop(0.70, primaryHex + '08');
-    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    gctx.fillStyle = gradient;
-    gctx.fillRect(0, 0, 512, 512);
-    if (groundTexture) groundTexture.needsUpdate = true;
-  }
-
-  const groundTexture = new THREE.CanvasTexture(groundCanvas);
-  drawGroundGlow('#d4af37');
-
-  const groundGeo = new THREE.PlaneGeometry(18, 18);
-  const groundMat = new THREE.MeshBasicMaterial({
-    map: groundTexture,
-    transparent: true,
-    opacity: 0.90,
-    depthWrite: false
-  });
-  const groundMesh = new THREE.Mesh(groundGeo, groundMat);
-  groundMesh.rotation.x = -Math.PI / 2;
-  groundMesh.position.y = -1.14;
-  scene.add(groundMesh);
-
-  // 2. ROTATING WHITE CIRCULAR DOTS (Shown ONLY at start / Hero section)
-  // Must disappear completely when scrolling down as Section 2 arrives.
-  const ringCount = 320;
-  const ringGeo = new THREE.BufferGeometry();
-  const ringPos = new Float32Array(ringCount * 3);
-
-  for (let i = 0; i < ringCount; i++) {
-    const angle = Math.random() * Math.PI * 2;
-    const r = 2.4 + Math.random() * 2.3;
-    ringPos[i * 3] = Math.cos(angle) * r;
-    ringPos[i * 3 + 1] = -1.12 + (Math.random() - 0.5) * 0.12;
-    ringPos[i * 3 + 2] = Math.sin(angle) * (r * 0.62);
-  }
-  ringGeo.setAttribute('position', new THREE.BufferAttribute(ringPos, 3));
-
-  const ringMat = new THREE.PointsMaterial({
-    color: 0xffffff,
-    size: 0.052,
-    transparent: true,
-    opacity: 0.85,
-    blending: THREE.AdditiveBlending
-  });
-  const ringPoints = new THREE.Points(ringGeo, ringMat);
-  ringPoints.position.x = 1.35; // Centered directly under the scooter inside marked area
-  scene.add(ringPoints);
-
-  // 3. Floating Ambient Starfield / Dust
+  // Floating Ambient Starfield / Dust
   const dustCount = 340;
   const dustGeo = new THREE.BufferGeometry();
   const dustPos = new Float32Array(dustCount * 3);
@@ -386,15 +321,8 @@
       });
     }
 
-    // Update Lighting & Floor Glow
-    underglowLight.color.setHex(data.lightHex);
+    // Update Studio Rim Light
     frontRimLight.color.setHex(data.rimHex);
-    drawGroundGlow(data.glow);
-
-    // Update Ambient Spotlight CSS
-    if (scooterSpotlight) {
-      scooterSpotlight.style.background = `radial-gradient(circle at center, ${data.glow}26 0%, ${data.glow}0d 40%, transparent 70%)`;
-    }
 
     // Update DOM Copy
     if (heroBgText) heroBgText.textContent = 'ATHER';
@@ -661,22 +589,6 @@
       techGrid.style.opacity = p > 0.74 ? clamp((p - 0.74) / 0.10 * 0.75, 0, 0.75) : 0;
     }
 
-    // Dynamic Spotlight following scooter between Center (Hero), Left (Section 2), and Center (Section 3)
-    if (scooterSpotlight) {
-      if (p < 0.18) {
-        scooterSpotlight.style.left = '50%';
-      } else if (p < 0.28) {
-        const tGlide = (p - 0.18) / 0.10;
-        scooterSpotlight.style.left = `${lerp(50, 25, tGlide)}%`;
-      } else if (p <= 0.74) {
-        scooterSpotlight.style.left = '25%'; // Squarely behind left column scooter
-      } else if (p <= 0.84) {
-        const tExit = (p - 0.74) / 0.10;
-        scooterSpotlight.style.left = `${lerp(25, 50, tExit)}%`;
-      } else {
-        scooterSpotlight.style.left = '50%';
-      }
-    }
 
     // -------------------------------------------------------------
     // 5. SECTION 3 VEHICLE: ATHER RIZTA NEW MODEL PERSISTS THROUGHOUT
@@ -988,34 +900,10 @@
       carPivot.scale.setScalar(state.baseScale);
     }
 
-    // 4. ROTATING WHITE CIRCULAR DOTS (Shown ONLY at start / Hero section)
-    // Dissolves and completely disappears as user scrolls down into Section 2!
-    if (ringPoints) {
-      ringPoints.rotation.y = elapsedTime * 0.12;
-      ringPoints.position.x = carPivot.position.x;
-      const fade = (typeof state.ringFade === 'number') ? state.ringFade : 1.0;
-      if (fade > 0.002) {
-        ringPoints.visible = true;
-        ringMat.opacity = fade * (0.80 + Math.sin(elapsedTime * 2.2) * 0.15);
-      } else {
-        ringPoints.visible = false;
-        ringMat.opacity = 0;
-      }
-    }
-
-    // 5. Slowly Drift Floating Dust
+    // 4. Slowly Drift Floating Dust
     if (dustPoints) {
       dustPoints.rotation.y = elapsedTime * 0.03;
       dustPoints.position.y = Math.sin(elapsedTime * 0.5) * 0.2;
-    }
-
-    // 6. Pulse Floor Glow & Underglow Light (smoothly follows scooter position)
-    if (underglowLight && carPivot) {
-      underglowLight.position.x = carPivot.position.x;
-      underglowLight.intensity = 3.2 + Math.sin(elapsedTime * 3) * 0.4;
-    }
-    if (groundMesh && carPivot) {
-      groundMesh.position.x = carPivot.position.x;
     }
 
     renderer.render(scene, camera);

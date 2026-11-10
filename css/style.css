@@ -273,19 +273,9 @@ body {
   transition: background 0.4s ease;
 }
 
-/* AMBIENT HIGHLIGHT SPOTLIGHT BEHIND SCOOTER */
+/* AMBIENT HIGHLIGHT SPOTLIGHT BEHIND SCOOTER - REMOVED PER USER REQUEST */
 .ambient-scooter-spotlight {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 65vw;
-  height: 65vh;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.08) 40%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transition: left 0.4s ease, background 0.4s ease;
+  display: none !important;
 }
 
 /* TECHNICAL BLUEPRINT GRID BACKGROUND (SECTION 3) */
@@ -314,19 +304,9 @@ body {
   display: block;
 }
 
-/* GROUND GLOW PLANE UNDER CAR */
+/* GROUND GLOW PLANE UNDER CAR - REMOVED PER USER REQUEST */
 .ground-glow-plane {
-  position: absolute;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75vw;
-  max-width: 900px;
-  height: 180px;
-  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.20) 0%, rgba(212, 175, 55, 0.06) 40%, transparent 75%);
-  filter: blur(24px);
-  pointer-events: none;
-  z-index: 3;
+  display: none !important;
 }
 
 /* ==========================================================================
