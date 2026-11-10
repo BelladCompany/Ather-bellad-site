@@ -1,0 +1,1455 @@
+/* ==========================================================================
+   ATHER ENERGY OFFICIAL WEBSITE REPLICA - STYLESHEET
+   Accurate 1:1 replica of atherenergy.com
+   Typography: Neurial Grotesk
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Neurial Grotesk';
+  src: url('../fonts/neurial-grotesk-regular.woff') format('woff'),
+       url('../fonts/neurial-grotesk-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neurial Grotesk';
+  src: url('../fonts/neurial-grotesk-medium.woff') format('woff'),
+       url('../fonts/neurial-grotesk-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neurial Grotesk';
+  src: url('../fonts/neurial-grotesk-bold.woff') format('woff'),
+       url('../fonts/neurial-grotesk-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neurial Grotesk';
+  src: url('../fonts/neurial-grotesk-bold.woff') format('woff'),
+       url('../fonts/neurial-grotesk-bold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-family: 'Neurial Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Neurial Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Ather Official Color Palette */
+  --ather-black: #0c0d10;
+  --ather-dark: #16181f;
+  --ather-green: #00d282;
+  --ather-green-hover: #00b870;
+  --ather-green-light: rgba(0, 210, 130, 0.12);
+  --ather-orange: #ff6a00;
+  
+  --bg-page: #ffffff;
+  --bg-light: #f7f9fc;
+  --bg-subtle: #f1f4f8;
+  --bg-card: #ffffff;
+  
+  --text-primary: #12141a;
+  --text-secondary: #586071;
+  --text-muted: #8c95a6;
+  --text-light: #ffffff;
+  
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-subtle: #e6eaf0;
+  --border-card: #e8ebf0;
+  
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.10);
+  
+  --nav-height: 72px;
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container-ather {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ather-green-hover);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+
+.section-title-center {
+  text-align: center;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.ather-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.ather-navbar-inner {
+  max-width: 1320px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ather-brand-logo {
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+
+.ather-brand-logo img {
+  height: 22px;
+  width: auto;
+}
+
+.ather-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+}
+
+.ather-nav-item a {
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0;
+}
+
+.ather-nav-item a:hover {
+  color: var(--ather-green-hover);
+}
+
+.badge-nav-new {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: var(--ather-orange);
+  padding: 2px 6px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ather-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-dealer-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 99px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.btn-dealer-badge:hover {
+  color: var(--text-primary);
+  border-color: #cbd5e1;
+}
+
+.btn-nav-book {
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.90rem;
+  font-weight: 700;
+  padding: 9px 22px;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-nav-book:hover {
+  background: var(--ather-green);
+  color: #000000;
+  transform: translateY(-1px);
+}
+
+.btn-hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-hamburger span {
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+/* ==========================================================================
+   HERO BANNER: THE ALL-NEW HALO
+   ========================================================================== */
+.hero-halo-section {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 86vh, 800px);
+  background-image: url('../images/ather_official/homepagekv.webp');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 60px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-halo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 45%, rgba(0, 0, 0, 0.45) 100%);
+  z-index: 1;
+}
+
+.hero-halo-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-halo-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.hero-halo-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 24px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-hero-explore {
+  background: #ffffff;
+  color: #090a0d;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 12px 34px;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-hero-explore:hover {
+  background: var(--ather-green);
+  color: #090a0d;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   QUICK ACTIONS
+   ========================================================================== */
+.quick-actions-section {
+  padding: 48px 0 60px;
+  background: var(--bg-page);
+}
+
+.quick-actions-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  letter-spacing: -0.015em;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.quick-action-card {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.quick-action-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.quick-action-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   THE ATHER ELECTRIC FAMILY (PRODUCT CARDS)
+   ========================================================================== */
+.electric-family-section {
+  padding: 40px 0 80px;
+  background: var(--bg-page);
+}
+
+.electric-family-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.electric-family-header .section-title {
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
+}
+
+.family-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Top Large Full-Width Card */
+.family-card-full {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 58vh, 560px);
+  border-radius: 28px;
+  overflow: hidden;
+  background-image: url('../images/ather_official/homepageproductcardkonarc3x.webp');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 44px 48px;
+  color: #ffffff;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.family-card-full:hover {
+  transform: translateY(-4px);
+}
+
+.card-scrim-top {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.1) 45%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-content-top {
+  position: relative;
+  z-index: 2;
+}
+
+.card-model-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.card-model-subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card-content-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+.card-price-label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 4px;
+}
+
+.card-price-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.card-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-card-primary {
+  background: #ffffff;
+  color: #090a0d;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 10px 28px;
+  border-radius: 99px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-card-primary:hover {
+  background: var(--ather-green);
+  color: #090a0d;
+  transform: translateY(-2px);
+}
+
+.btn-card-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 99px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-card-secondary:hover {
+  background: #ffffff;
+  color: #090a0d;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Bottom Two Half Cards */
+.family-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.family-card-half {
+  position: relative;
+  height: clamp(380px, 48vh, 480px);
+  border-radius: 28px;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 38px 40px;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.family-card-half:hover {
+  transform: translateY(-4px);
+}
+
+.card-450 {
+  background-image: url('../images/ather_official/homepageproductcard4503x.webp');
+}
+
+.card-rizta {
+  background-image: url('../images/ather_official/homepageproductcardrizta3x.webp');
+}
+
+/* ==========================================================================
+   PAIR YOUR WORLD (ATHER HALO)
+   ========================================================================== */
+.pair-world-section {
+  padding: 70px 0 90px;
+  background: var(--bg-light);
+  text-align: center;
+}
+
+.pair-world-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.pair-world-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  margin-bottom: 28px;
+}
+
+.pair-world-img-wrap {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto 32px;
+  position: relative;
+}
+
+.pair-world-img-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.pair-world-img-wrap:hover img {
+  transform: scale(1.04);
+}
+
+.pair-world-desc {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.btn-pair-explore {
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 12px 34px;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.btn-pair-explore:hover {
+  background: var(--ather-green);
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   EFFORTLESS RIDING. WORRY-FREE OWNERSHIP. (ATHER ADVANTAGE)
+   ========================================================================== */
+.advantage-section {
+  padding: 80px 0 90px;
+  background: var(--bg-page);
+}
+
+.advantage-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.advantage-header .section-title {
+  margin-top: 6px;
+}
+
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.advantage-card {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+}
+
+.advantage-card:hover {
+  transform: translateY(-6px);
+  border-color: #cbd5e1;
+  box-shadow: var(--card-shadow-hover);
+}
+
+.advantage-card-thumb {
+  width: 100%;
+  height: 240px;
+  background: #f1f3f7;
+  overflow: hidden;
+  position: relative;
+}
+
+.advantage-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.advantage-card:hover .advantage-card-thumb img {
+  transform: scale(1.08);
+}
+
+.advantage-card-body {
+  padding: 24px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.advantage-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.advantage-card-link {
+  margin-top: auto;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ather-green-hover);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+
+.advantage-card:hover .advantage-card-link {
+  gap: 10px;
+}
+
+/* ==========================================================================
+   KEEP EXPLORING
+   ========================================================================== */
+.explore-section-replica {
+  padding: 70px 0 90px;
+  background: var(--bg-light);
+}
+
+.explore-title-replica {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 44px;
+  letter-spacing: -0.02em;
+}
+
+.explore-grid-replica {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.explore-card-replica {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  padding: 34px 26px 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.explore-card-replica:hover {
+  transform: translateY(-6px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+.explore-icon-box {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.explore-card-h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.explore-card-p {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.explore-card-a {
+  margin-top: auto;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.explore-card-a:hover {
+  color: var(--ather-green-hover);
+}
+
+/* ==========================================================================
+   GET IN TOUCH (LEAD CAPTURE)
+   ========================================================================== */
+.contact-section-replica {
+  padding: 80px 0 90px;
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.contact-card-box {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 28px;
+  padding: 56px 60px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.contact-replica-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.6vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  margin-bottom: 26px;
+}
+
+.contact-replica-form {
+  width: 100%;
+}
+
+.contact-replica-input-wrap {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.contact-replica-input {
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+  background: #f4f6fa;
+  border: 1px solid #e2e8f0;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 0.96rem;
+  padding: 0 18px;
+  transition: all 0.2s ease;
+}
+
+.contact-replica-input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: var(--ather-black);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.phone-input-row {
+  display: flex;
+  align-items: center;
+  background: #f4f6fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.phone-input-row:focus-within {
+  background: #ffffff;
+  border-color: var(--ather-black);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.phone-input-prefix {
+  padding-left: 18px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.phone-input-sep {
+  color: #94a3b8;
+  margin: 0 8px;
+}
+
+.phone-input-field {
+  flex-grow: 1;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+}
+
+.gps-locate-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.gps-locate-btn:hover {
+  color: var(--text-primary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.model-pick-block {
+  margin: 22px 0;
+}
+
+.model-pick-label {
+  display: block;
+  font-size: 0.90rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.model-pick-pills {
+  display: flex;
+  gap: 12px;
+}
+
+.model-pick-btn {
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  background: #f4f6fa;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.model-pick-btn:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.model-pick-btn.active {
+  background: var(--text-primary);
+  color: #ffffff;
+  border-color: var(--text-primary);
+  font-weight: 700;
+}
+
+.btn-contact-submit {
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  border-radius: 99px;
+  background: var(--ather-black);
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-contact-submit:hover {
+  background: var(--ather-green);
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.contact-privacy-note {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.contact-privacy-note a {
+  text-decoration: underline;
+}
+
+.contact-scooter-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.contact-scooter-showcase img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.18));
+  transition: transform 0.3s ease;
+}
+
+.contact-scooter-showcase:hover img {
+  transform: scale(1.03);
+}
+
+.contact-success-msg {
+  display: none;
+  background: var(--ather-green-light);
+  border: 1px solid rgba(0, 210, 130, 0.4);
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.90rem;
+  color: #055030;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   FAQS ACCORDION
+   ========================================================================== */
+.faqs-section-replica {
+  padding: 80px 0 90px;
+  background: var(--bg-light);
+}
+
+.faqs-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faqs-header .section-title {
+  margin-bottom: 8px;
+}
+
+.faqs-subtext {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+}
+
+.faqs-subtext a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.faqs-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item.active {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  gap: 16px;
+}
+
+.faq-toggle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+
+.faq-item.active .faq-toggle-icon {
+  transform: rotate(45deg);
+  background: var(--text-primary);
+  color: #ffffff;
+}
+
+.faq-answer-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), padding 0.35s ease;
+  padding: 0 26px;
+}
+
+.faq-item.active .faq-answer-body {
+  padding: 0 26px 24px;
+}
+
+.faq-answer-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.faq-answer-text a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   DISCLAIMER ACCORDION
+   ========================================================================== */
+.disclaimer-section-replica {
+  padding: 24px 0 40px;
+  background: var(--bg-light);
+}
+
+.disclaimer-box {
+  max-width: 860px;
+  margin: 0 auto;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.disclaimer-toggle-btn {
+  width: 100%;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.disclaimer-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 22px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.disclaimer-box.active .disclaimer-content {
+  padding: 0 22px 20px;
+}
+
+.disclaimer-box.active .disclaimer-arrow {
+  transform: rotate(180deg);
+}
+
+.disclaimer-arrow {
+  transition: transform 0.25s ease;
+}
+
+/* ==========================================================================
+   FESTIVE OFFERS PROMO BAR
+   ========================================================================== */
+.festive-promo-bar {
+  background: #fbeee8;
+  border-top: 1px solid #f2ded5;
+  border-bottom: 1px solid #f2ded5;
+  padding: 16px 24px;
+  text-align: center;
+  color: #7c2d12;
+  font-size: 0.92rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.festive-tag-pill {
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.festive-link {
+  color: #c2410c;
+  text-decoration: underline;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   OFFICIAL ATHER FOOTER (DARK CARBON)
+   ========================================================================== */
+.ather-replica-footer {
+  background: var(--ather-black);
+  color: #ffffff;
+  padding: 70px 0 40px;
+  font-family: var(--font-family);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 36px;
+  margin-bottom: 56px;
+}
+
+.footer-col-h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-list a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links-list a:hover {
+  color: var(--ather-green);
+}
+
+.footer-dealer-callout {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dealer-callout-left {
+  max-width: 600px;
+}
+
+.dealer-tag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ather-green);
+  margin-bottom: 6px;
+}
+
+.dealer-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.dealer-desc {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-social-row {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.footer-social-icon:hover {
+  background: var(--ather-green);
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.footer-bottom-legal {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal-links a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETS & MOBILE)
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .advantage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .explore-grid-replica {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-card-box {
+    grid-template-columns: 1fr;
+    padding: 40px 32px;
+  }
+  .footer-top-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ather-nav-links,
+  .btn-dealer-badge {
+    display: none;
+  }
+  .btn-hamburger {
+    display: flex;
+  }
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+  .family-cards-row {
+    grid-template-columns: 1fr;
+  }
+  .family-card-full {
+    height: 480px;
+    padding: 30px 24px;
+  }
+  .family-card-half {
+    height: 440px;
+    padding: 30px 24px;
+  }
+  .advantage-grid {
+    grid-template-columns: 1fr;
+  }
+  .explore-grid-replica {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-halo-section {
+    height: 70vh;
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-buttons-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-card-primary,
+  .btn-card-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
