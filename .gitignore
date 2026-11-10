@@ -1,0 +1,18 @@
+# Chrome CDP temporary testing profiles
+cdp_profile/
+cdp_profile*/
+
+# Internal test & inspection scripts
+cdp-capture.js
+cdp-test-angles.js
+check-dims.js
+find-lights.js
+inspect-paint.js
+list-all-meshes.js
+test-*.js
+verify-*.js
+
+# Temporary & Log files
+*.log
+.DS_Store
+Thumbs.db
