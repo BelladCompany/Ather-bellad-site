@@ -14,7 +14,7 @@
     const scooterImg = document.getElementById('contactScooterDisplayImg');
 
     const modelImages = {
-      ather450: 'images/ather_450x_spacegrey.png',
+      ather450: 'images/contact_ather_450x_exact.png',
       rizta: 'images/clean_rizta_grey_duo.png'
     };
 

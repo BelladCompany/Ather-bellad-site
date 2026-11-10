@@ -89,16 +89,16 @@
   --explore-icon-color: #ffffff;
   --explore-link-color: #00d282;
 
-  --contact-bg: #0b0d12;
+  --contact-bg: #090a0d;
   --contact-title-color: #ffffff;
-  --contact-input-bg: #141722;
-  --contact-input-border: rgba(255, 255, 255, 0.1);
-  --contact-input-focus: #00d282;
+  --contact-input-bg: rgba(255, 255, 255, 0.05);
+  --contact-input-border: rgba(255, 255, 255, 0.12);
+  --contact-input-focus: #ff6a00;
   --contact-input-text: #ffffff;
-  --contact-input-placeholder: rgba(255, 255, 255, 0.42);
-  --contact-pill-bg: #141722;
-  --contact-pill-border: rgba(255, 255, 255, 0.1);
-  --contact-pill-text: rgba(255, 255, 255, 0.7);
+  --contact-input-placeholder: rgba(255, 255, 255, 0.45);
+  --contact-pill-bg: rgba(255, 255, 255, 0.06);
+  --contact-pill-border: rgba(255, 255, 255, 0.15);
+  --contact-pill-text: rgba(255, 255, 255, 0.72);
   --contact-pill-active-bg: #ffffff;
   --contact-pill-active-text: #090a0d;
   --contact-pill-active-border: #ffffff;
@@ -107,7 +107,7 @@
   --contact-submit-hover: #00ea90;
   --contact-submit-shadow: 0 8px 24px rgba(0, 210, 130, 0.35);
   --contact-disclaimer-color: rgba(255, 255, 255, 0.45);
-  --contact-halo: radial-gradient(ellipse at center, rgba(0, 210, 130, 0.12) 0%, transparent 68%);
+  --contact-halo: radial-gradient(ellipse at 35% 50%, rgba(255, 106, 0, 0.28) 0%, rgba(255, 87, 34, 0.12) 42%, transparent 72%);
 
   --footer-bg: #06070a;
   --footer-border: rgba(255, 255, 255, 0.08);
@@ -161,7 +161,7 @@
   --contact-title-color: #0f172a;
   --contact-input-bg: #f4f6fa;
   --contact-input-border: #e2e8f0;
-  --contact-input-focus: #0f172a;
+  --contact-input-focus: #ff6a00;
   --contact-input-text: #0f172a;
   --contact-input-placeholder: #94a3b8;
   --contact-pill-bg: #f4f6fa;
@@ -172,10 +172,10 @@
   --contact-pill-active-border: #0f172a;
   --contact-submit-bg: #0f172a;
   --contact-submit-text: #ffffff;
-  --contact-submit-hover: #00d282;
+  --contact-submit-hover: #ff6a00;
   --contact-submit-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
   --contact-disclaimer-color: #94a3b8;
-  --contact-halo: radial-gradient(ellipse at center, rgba(0, 210, 130, 0.08) 0%, transparent 68%);
+  --contact-halo: radial-gradient(ellipse at center, rgba(255, 106, 0, 0.08) 0%, transparent 68%);
 
   --footer-bg: #edf0f5;
   --footer-border: rgba(0, 0, 0, 0.08);
@@ -2406,8 +2406,11 @@ body.theme-light .maison-vell-section {
   position: relative;
   z-index: 100;
   width: 100%;
-  padding: 90px 5% 110px;
+  padding: 85px 4% 100px;
   background-color: var(--contact-bg);
+  background-image: 
+    radial-gradient(circle at 60% 48%, rgba(255, 106, 0, 0.18) 0%, rgba(255, 87, 34, 0.07) 38%, transparent 68%),
+    radial-gradient(circle at 44% 56%, rgba(255, 130, 0, 0.07) 0%, transparent 52%);
   color: var(--contact-title-color);
   transition: background-color 0.4s ease, color 0.4s ease;
   font-family: var(--font-family);
@@ -2415,17 +2418,30 @@ body.theme-light .maison-vell-section {
   overflow: hidden;
 }
 
+body.theme-light .contact-section {
+  background-image: radial-gradient(circle at 62% 50%, rgba(255, 106, 0, 0.05) 0%, transparent 60%);
+}
+
 .contact-container {
-  max-width: 1360px;
+  max-width: 1220px;
   margin: 0 auto;
   width: 100%;
+  position: relative;
 }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 60px;
+  grid-template-columns: 440px 1fr;
+  gap: 0;
   align-items: center;
+  position: relative;
+}
+
+.contact-form-col {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 440px;
 }
 
 .contact-section-title {
@@ -2438,7 +2454,8 @@ body.theme-light .maison-vell-section {
 }
 
 .contact-lead-form {
-  max-width: 500px;
+  width: 100%;
+  max-width: 440px;
 }
 
 .contact-field-wrap {
@@ -2466,7 +2483,7 @@ body.theme-light .maison-vell-section {
 .contact-input:focus {
   outline: none;
   border-color: var(--contact-input-focus);
-  box-shadow: 0 0 0 3px rgba(0, 210, 130, 0.18);
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.22);
 }
 
 .contact-field-wrap.phone-wrap {
@@ -2480,7 +2497,7 @@ body.theme-light .maison-vell-section {
 
 .contact-field-wrap.phone-wrap:focus-within {
   border-color: var(--contact-input-focus);
-  box-shadow: 0 0 0 3px rgba(0, 210, 130, 0.18);
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.22);
 }
 
 .phone-prefix-block {
@@ -2676,46 +2693,50 @@ body.theme-light .maison-vell-section {
 .contact-visual-col {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
+  z-index: 4;
+  margin-left: -50px; /* Snugs front wheel immediately next to the form inputs */
 }
 
 .contact-scooter-stage {
   position: relative;
   width: 100%;
-  max-width: 620px;
-  text-align: center;
+  max-width: 780px;
+  text-align: left;
 }
 
 .contact-scooter-halo {
   position: absolute;
-  inset: -15%;
+  inset: -25% -15% -20% -25%;
   background: var(--contact-halo);
   border-radius: 50%;
-  filter: blur(50px);
+  filter: blur(60px);
   pointer-events: none;
+  z-index: 0;
 }
 
 .contact-scooter-img {
   width: 100%;
-  max-width: 560px;
+  max-width: 740px;
   height: auto;
   object-fit: contain;
+  display: block;
   position: relative;
   z-index: 2;
   transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.45));
 }
 
 .contact-scooter-shadow {
   position: absolute;
-  bottom: 2%;
-  left: 12%;
-  right: 12%;
-  height: 20px;
+  bottom: 0;
+  left: 6%;
+  right: 6%;
+  height: 24px;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.65), transparent);
-  filter: blur(8px);
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.75), transparent);
+  filter: blur(10px);
   z-index: 1;
 }
 
@@ -2846,6 +2867,15 @@ body.theme-light .maison-vell-section {
   .explore-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .contact-grid {
+    grid-template-columns: 400px 1fr;
+  }
+  .contact-visual-col {
+    margin-left: -20px;
+  }
+  .contact-scooter-img {
+    max-width: 620px;
+  }
   .footer-top-row {
     grid-template-columns: 1fr 1fr;
     gap: 36px;
@@ -2865,13 +2895,19 @@ body.theme-light .maison-vell-section {
   }
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
   .contact-visual-col {
     order: -1;
+    margin-left: 0;
+    justify-content: center;
+  }
+  .contact-scooter-stage {
+    max-width: 520px;
+    text-align: center;
   }
   .contact-scooter-img {
-    max-width: 380px;
+    max-width: 460px;
   }
   .contact-submit-btn {
     max-width: 100%;
