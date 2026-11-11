@@ -1,0 +1,1753 @@
+/* =========================================================================
+   ATHER 450X & 450S OFFICIAL REPLICA STYLESHEET
+   1:1 Authentic Re-creation for Bellad & Company Authorized Dealership
+   ========================================================================= */
+
+@font-face {
+  font-family: 'Neurial Grotesk';
+  src: url('../fonts/NeurialGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neurial Grotesk';
+  src: url('../fonts/NeurialGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neurial Grotesk';
+  src: url('../fonts/NeurialGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-ather: 'Neurial Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bg-primary: #0a0b0e;
+  --bg-secondary: #12141a;
+  --bg-card: #181b22;
+  --bg-card-hover: #1f232d;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(0, 210, 106, 0.5);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #9aa0a6;
+  --text-muted: #6b7280;
+  
+  --accent-green: #00d26a;
+  --accent-green-glow: rgba(0, 210, 106, 0.35);
+  --accent-orange: #ff5722;
+  --accent-gold: #f5a623;
+  --accent-blue: #3290ff;
+  
+  --container-max: 1280px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  
+  --header-height: 72px;
+  --subnav-height: 56px;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f3f5;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-focus: rgba(0, 210, 106, 0.6);
+  
+  --text-primary: #12141a;
+  --text-secondary: #5f6368;
+  --text-muted: #80868b;
+  
+  --accent-green: #00a854;
+  --accent-green-glow: rgba(0, 168, 84, 0.25);
+  --accent-orange: #e64a19;
+  --accent-gold: #d48806;
+}
+
+/* Base resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-ather);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container-450 {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* =========================================================================
+   STICKY MODEL SUB-NAVIGATION BAR (Official Ather 450 Model Header)
+   ========================================================================= */
+.model-subnav {
+  position: sticky;
+  top: 72px; /* right below .site-header */
+  z-index: 900;
+  background: rgba(10, 11, 14, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.3s ease;
+}
+
+[data-theme="light"] .model-subnav {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.model-subnav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--subnav-height);
+  padding: 0 24px;
+}
+
+.subnav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.subnav-model-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subnav-price-tag {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.subnav-price-tag strong {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.subnav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.subnav-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.subnav-link:hover, .subnav-link.active {
+  color: var(--text-primary);
+}
+
+.subnav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.subnav-btn-testride {
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.subnav-btn-testride:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.subnav-btn-book {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 700;
+  background: var(--accent-green);
+  color: #000000;
+  box-shadow: 0 2px 10px var(--accent-green-glow);
+  transition: all var(--transition-fast);
+}
+
+.subnav-btn-book:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px var(--accent-green-glow);
+}
+
+/* =========================================================================
+   1. HERO SECTION (Overtones Series)
+   ========================================================================= */
+.hero-450 {
+  position: relative;
+  min-height: 780px;
+  max-height: 920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 0 60px;
+  overflow: hidden;
+  background: #08090c;
+}
+
+.hero-450-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-450-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero-450-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 11, 14, 0.4) 0%,
+    rgba(10, 11, 14, 0.1) 40%,
+    rgba(10, 11, 14, 0.85) 85%,
+    rgba(10, 11, 14, 1) 100%
+  );
+}
+
+.hero-450-content {
+  position: relative;
+  z-index: 3;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.hero-450-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.hero-450-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.hero-450-sub {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 24px;
+}
+
+.hero-450-sub strong {
+  color: var(--accent-green);
+}
+
+.hero-450-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.btn-primary-450 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: var(--accent-green);
+  color: #000000;
+  box-shadow: 0 4px 20px var(--accent-green-glow);
+  transition: all var(--transition-fast);
+}
+
+.btn-primary-450:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 210, 106, 0.5);
+}
+
+.btn-secondary-450 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary-450:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Stats Pill Bar */
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  background: rgba(24, 27, 34, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px 28px;
+}
+
+.hero-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stat-val {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* =========================================================================
+   2. INTRODUCING SECTION (Demands your absolute attention)
+   ========================================================================= */
+.intro-section {
+  padding: 100px 0 80px;
+  text-align: center;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.intro-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.intro-title {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.intro-desc {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+.intro-visual {
+  max-width: 1060px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.intro-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.intro-visual:hover img {
+  transform: scale(1.02);
+}
+
+/* =========================================================================
+   3. FORM + FUNCTION (4-Card Engineering Grid)
+   ========================================================================= */
+.form-function-section {
+  padding: 90px 0;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-green);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eng-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.eng-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.eng-card-img {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: #000;
+}
+
+.eng-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.eng-card:hover .eng-card-img img {
+  transform: scale(1.04);
+}
+
+.eng-card-body {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.eng-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+.eng-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* =========================================================================
+   4. DASH OF SMARTS (Interactive Dashboard Showcase)
+   ========================================================================= */
+.dash-smarts-section {
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.dash-showcase {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 36px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+@media (max-width: 992px) {
+  .dash-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dash-screen-display {
+  background: #000000;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dash-screen-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dash-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dash-tab-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.dash-tab-item:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dash-tab-item.active {
+  background: rgba(0, 210, 106, 0.08);
+  border-color: var(--accent-green);
+  box-shadow: 0 0 20px var(--accent-green-glow);
+}
+
+.dash-tab-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  color: var(--accent-green);
+}
+
+.dash-tab-item.active .dash-tab-icon {
+  background: var(--accent-green);
+  color: #000000;
+}
+
+.dash-tab-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.dash-tab-info p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* =========================================================================
+   5. VOICE ON ATHER
+   ========================================================================= */
+.voice-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, #101522 50%, var(--bg-primary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.voice-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(24, 27, 34, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  position: relative;
+}
+
+.voice-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 210, 106, 0.15);
+  color: var(--accent-green);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.voice-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 60px;
+  margin: 32px 0 24px;
+}
+
+.wave-bar {
+  width: 4px;
+  height: 20px;
+  background: var(--accent-green);
+  border-radius: 4px;
+  animation: wavePulse 1.2s ease-in-out infinite alternate;
+}
+
+.wave-bar:nth-child(2) { animation-delay: 0.1s; height: 35px; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; height: 50px; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; height: 30px; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; height: 45px; }
+.wave-bar:nth-child(6) { animation-delay: 0.5s; height: 25px; }
+.wave-bar:nth-child(7) { animation-delay: 0.6s; height: 40px; }
+.wave-bar:nth-child(8) { animation-delay: 0.7s; height: 18px; }
+
+@keyframes wavePulse {
+  0% { transform: scaleY(0.4); opacity: 0.5; }
+  100% { transform: scaleY(1.2); opacity: 1; }
+}
+
+.voice-prompts-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.voice-pill-btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.voice-pill-btn:hover, .voice-pill-btn.active {
+  background: var(--accent-green);
+  color: #000000;
+  border-color: var(--accent-green);
+}
+
+.voice-output-bubble {
+  margin-top: 24px;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  font-size: 1.05rem;
+  color: #ffffff;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================================
+   6. SAFE AND SOUND (Safety Features Grid)
+   ========================================================================= */
+.safe-section {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+}
+
+.safe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (max-width: 992px) {
+  .safe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .safe-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.safe-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.safe-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-green);
+}
+
+.safe-card-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.safe-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.safe-card p {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.safe-card-img {
+  margin-top: 20px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 160px;
+  background: #000;
+}
+
+.safe-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================================
+   7. RIDE QUICK. RIDE EASY (Intuitive Riding Controls)
+   ========================================================================= */
+.ride-section {
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.ride-carousel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+@media (max-width: 1024px) {
+  .ride-carousel {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ride-carousel {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ride-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.ride-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ride-card-media {
+  height: 180px;
+  background: #000;
+  overflow: hidden;
+}
+
+.ride-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ride-card-content {
+  padding: 24px;
+}
+
+.ride-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ride-card-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* =========================================================================
+   8. SAY HALO TO THRILLS (Smart Helmet Integration)
+   ========================================================================= */
+.halo-showcase-section {
+  padding: 90px 0;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, #0d121c 100%);
+}
+
+.halo-banner-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .halo-banner-card {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+  }
+}
+
+.halo-banner-info h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.halo-banner-info p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.halo-pills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.halo-pill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.halo-pill-item i {
+  color: var(--accent-green);
+  font-size: 1.1rem;
+}
+
+.halo-banner-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.halo-banner-media img {
+  max-height: 380px;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+  animation: haloGentleFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes haloGentleFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* =========================================================================
+   9. GALLERY SECTION
+   ========================================================================= */
+.gallery-section {
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+  margin-top: 48px;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #000;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item:nth-child(1) { grid-column: span 7; height: 380px; }
+.gallery-item:nth-child(2) { grid-column: span 5; height: 380px; }
+.gallery-item:nth-child(3) { grid-column: span 4; height: 320px; }
+.gallery-item:nth-child(4) { grid-column: span 4; height: 320px; }
+.gallery-item:nth-child(5) { grid-column: span 4; height: 320px; }
+
+@media (max-width: 900px) {
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3),
+  .gallery-item:nth-child(4),
+  .gallery-item:nth-child(5) {
+    grid-column: span 6;
+    height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3),
+  .gallery-item:nth-child(4),
+  .gallery-item:nth-child(5) {
+    grid-column: span 12;
+    height: 240px;
+  }
+}
+
+/* =========================================================================
+   10. COLOURS SECTION (Interactive Color Picker)
+   ========================================================================= */
+.colours-section {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.colour-model-switch {
+  display: inline-flex;
+  background: var(--bg-card);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 36px;
+}
+
+.colour-model-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.colour-model-btn.active {
+  background: var(--accent-green);
+  color: #000000;
+  box-shadow: 0 2px 12px var(--accent-green-glow);
+}
+
+.colour-viewer-stage {
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.colour-viewer-stage img {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.5));
+}
+
+.colour-swatches-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.colour-swatch-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  outline: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast), outline-color var(--transition-fast);
+  position: relative;
+}
+
+.colour-swatch-btn:hover {
+  transform: scale(1.15);
+}
+
+.colour-swatch-btn.active {
+  transform: scale(1.18);
+  outline-color: var(--accent-green);
+}
+
+.colour-name-label {
+  margin-top: 16px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* =========================================================================
+   11. CHOOSE YOUR ATHER 450 (Comparison Table)
+   ========================================================================= */
+.compare-section {
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.compare-table-wrap {
+  margin-top: 48px;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  text-align: left;
+}
+
+.compare-table th, .compare-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.compare-table thead th {
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  vertical-align: bottom;
+}
+
+.compare-table thead th:first-child {
+  width: 32%;
+}
+
+.compare-table thead th:not(:first-child) {
+  width: 22.6%;
+  text-align: center;
+}
+
+.compare-table td:not(:first-child) {
+  text-align: center;
+}
+
+.compare-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.compare-feature-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.compare-table td {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+}
+
+.compare-table td strong {
+  color: #ffffff;
+}
+
+.val-highlight {
+  color: var(--accent-green) !important;
+  font-weight: 700;
+}
+
+.table-check {
+  color: var(--accent-green);
+  font-size: 1.1rem;
+}
+
+.table-cross {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* =========================================================================
+   12. ATHERSTACK 6 / COCKPIT BANNER
+   ========================================================================= */
+.banner-stack {
+  margin: 60px 0;
+  padding: 80px 24px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #160a2b 0%, #1e1b4b 40%, #064e3b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-stack h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.banner-stack p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+/* =========================================================================
+   13. FINANCE YOUR ATHER 450 (Interactive EMI Calculator)
+   ========================================================================= */
+.finance-section {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+}
+
+.finance-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  margin-top: 48px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .finance-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.finance-calc-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+
+.calc-group {
+  margin-bottom: 28px;
+}
+
+.calc-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.calc-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calc-val-pill {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.range-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 12px var(--accent-green-glow);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.finance-result-card {
+  background: linear-gradient(135deg, rgba(0, 210, 106, 0.12) 0%, rgba(24, 27, 34, 0.9) 100%);
+  border: 1px solid rgba(0, 210, 106, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+}
+
+.emi-tag {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.emi-amount {
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--accent-green);
+  line-height: 1.1;
+  margin: 8px 0;
+}
+
+.finance-banks-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.bank-tag {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* =========================================================================
+   14. TCO / FUEL SAVINGS CALCULATOR
+   ========================================================================= */
+.savings-section {
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.savings-card {
+  max-width: 900px;
+  margin: 48px auto 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+}
+
+.savings-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+@media (max-width: 640px) {
+  .savings-compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.savings-fuel-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+}
+
+.savings-fuel-card.ather-win {
+  background: rgba(0, 210, 106, 0.08);
+  border-color: var(--accent-green);
+}
+
+.fuel-card-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.fuel-card-val {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.ather-win .fuel-card-val {
+  color: var(--accent-green);
+}
+
+.savings-total-box {
+  margin-top: 32px;
+  padding: 20px 28px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 210, 106, 0.15);
+  border: 1px solid var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.savings-total-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.savings-total-val {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-green);
+}
+
+/* =========================================================================
+   15. UNLOCK ATHER PERKS & ACCESSORIES
+   ========================================================================= */
+.perks-section {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .perks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.perk-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.perk-card-img {
+  height: 200px;
+  background: #000;
+}
+
+.perk-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perk-card-body {
+  padding: 28px;
+  flex: 1;
+}
+
+.perk-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.perk-card-desc {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* =========================================================================
+   16. GET IN TOUCH (Authentic Contact Card)
+   ========================================================================= */
+.contact-section-450 {
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.contact-card-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #11141a;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .contact-card-wrap {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 900px) {
+  .contact-card-wrap {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+  }
+}
+
+.contact-form-side h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+
+.contact-input-field {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+[data-theme="light"] .contact-input-field {
+  background: #f1f3f5;
+  border-color: #e5e7eb;
+  color: #12141a;
+}
+
+.contact-input-field:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px var(--accent-green-glow);
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-locate-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.model-pick-group {
+  margin: 18px 0 24px;
+}
+
+.model-pick-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.model-toggle-row {
+  display: flex;
+  gap: 10px;
+}
+
+.model-pill-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+[data-theme="light"] .model-pill-btn {
+  background: #f1f3f5;
+  border-color: #e5e7eb;
+  color: #5f6368;
+}
+
+.model-pill-btn.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+[data-theme="light"] .model-pill-btn.active {
+  background: #12141a;
+  color: #ffffff;
+  border-color: #12141a;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--accent-green);
+  color: #000000;
+  box-shadow: 0 4px 20px var(--accent-green-glow);
+  transition: all var(--transition-fast);
+}
+
+.contact-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 26px rgba(0, 210, 106, 0.5);
+}
+
+.contact-disclaimer {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 14px;
+  line-height: 1.45;
+}
+
+.contact-visual-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.contact-visual-side img {
+  max-width: 100%;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+  transition: transform 0.4s ease;
+}
+
+/* =========================================================================
+   17. FAQS ACCORDION
+   ========================================================================= */
+.faq-section {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+}
+
+.faq-list {
+  max-width: 860px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  background: none;
+  cursor: pointer;
+}
+
+.faq-icon {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+  color: var(--accent-green);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 28px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 320px;
+  padding: 0 28px 24px;
+}
