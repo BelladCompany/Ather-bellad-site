@@ -385,6 +385,44 @@ body {
   border-radius: 2px;
 }
 
+/* KONARC NAV ITEM & NEW BADGE */
+.nav-item-konarc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--nav-link-color);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-item-konarc:hover {
+  color: var(--ather-gold, #d4af37);
+}
+
+.nav-badge-new {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1.5px 6.5px;
+  border-radius: 999px;
+  background: #00d26a;
+  color: #000000;
+  line-height: 1.2;
+  box-shadow: 0 0 8px rgba(0, 210, 106, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  vertical-align: middle;
+}
+
+.nav-item-konarc:hover .nav-badge-new {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(0, 210, 106, 0.7);
+}
+
 /* BRAND LOGO (CENTER) */
 .brand-logo {
   cursor: pointer;
