@@ -64,12 +64,21 @@ const server = http.createServer((req, res) => {
     });
 
     const stream = fs.createReadStream(filePath);
+    stream.on('error', (err) => {
+      if (!res.headersSent) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+      }
+      res.end();
+    });
+    res.on('error', (err) => {
+      stream.destroy();
+    });
     stream.pipe(res);
   });
 });
 
 server.on('error', (err) => {
-  console.error('[SERVER-ERROR]', err);
+  console.error('[SERVER-ERROR]', err.message);
   if (err.code === 'EADDRINUSE') {
     console.log(`Port ${PORT} in use, trying port ${PORT + 1}...`);
     PORT++;
@@ -86,13 +95,19 @@ server.listen(PORT, '0.0.0.0', () => {
 // Keep event loop alive permanently
 setInterval(() => {}, 10000);
 
+// Prevent unhandled stream/pipe resets from crashing the process
+process.on('uncaughtException', (err) => {
+  if (err.code === 'EPIPE' || err.code === 'ECONNRESET') return;
+  console.error('[UNCAUGHT-EXCEPTION]', err.message);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[UNHANDLED-REJECTION]', reason);
+});
+
 process.on('SIGINT', () => {});
 process.on('SIGTERM', () => {});
 process.on('SIGHUP', () => {});
-
-process.on('uncaughtException', (err) => {
-  console.error('[UNCAUGHT-EXCEPTION]', err);
-});
 
 process.on('exit', (code) => {
   console.log('[PROCESS-EXIT] Exit code:', code);
