@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+let PORT = parseInt(process.env.PORT, 10) || 3001;
 const ROOT = __dirname;
 
 const MIME_TYPES = {
@@ -71,11 +71,11 @@ const server = http.createServer((req, res) => {
 server.on('error', (err) => {
   console.error('[SERVER-ERROR]', err);
   if (err.code === 'EADDRINUSE') {
-    console.error('Port 3000 in use, retrying in 2 seconds...');
+    console.log(`Port ${PORT} in use, trying port ${PORT + 1}...`);
+    PORT++;
     setTimeout(() => {
-      server.close();
       server.listen(PORT, '0.0.0.0');
-    }, 2000);
+    }, 500);
   }
 });
 
